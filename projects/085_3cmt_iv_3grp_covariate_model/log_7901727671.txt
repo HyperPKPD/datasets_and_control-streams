@@ -1,0 +1,231 @@
+================================================================
+nlmx 4.16.2
+command line : C:\Users\askph\Desktop\PROJECTS\RUST\COVARI~1\nlmx\target\release\nlmx.exe generate --output projects/085_3cmt_iv_3grp_covariate_model --structure 3cmt-iv --groups 3 --doses 50,100,200 --effects CL~WT=0.75,V~WT=1,CL~EGFR=0.6 --covariate-model --gof-plots --author Henrik Schmidt --seed 20261085
+started      : 2026-11-12 00:24:03 -0500
+log file     : projects/085_3cmt_iv_3grp_covariate_model\log_7901727671.txt
+================================================================
+[   0.00s] [stage] [generating the design] generating the design
+[   0.00s] [info ] [generating the design] 3-compartment IV bolus; 3 group(s): Group 1 (34 × 50), Group 2 (33 × 100), Group 3 (33 × 200); 1 dose(s) every 24 h; 100 subject(s)
+[   0.01s] [debug] [generating the design] wrote analysis.csv (62191 bytes)
+[   0.01s] [debug] [generating the design] wrote run101.ctl (4426 bytes)
+[   0.01s] [debug] [generating the design] wrote truth.ctl (4699 bytes)
+[   0.02s] [debug] [generating the design] parsing control stream `projects/085_3cmt_iv_3grp_covariate_model\models\run101.ctl`
+[   0.02s] [ok   ] [generating the design] control stream parsed: 14 record(s), 18 $INPUT column(s), 8 THETA, 2 ETA, 1 EPS
+[   0.02s] [info ] [generating the design] reading dataset `projects/085_3cmt_iv_3grp_covariate_model\data\analysis.csv`
+[   0.02s] [info ] [generating the design] data columns as NONMEM reads them ($INPUT by position): 18 kept, 0 renamed, 0 dropped, 0 not in $INPUT
+[   0.02s] [debug] [generating the design]   delimiter comma; header present; columns: ID,TIME,AMT,RATE,ADDL,II,EVID,MDV,DV,CMT,GROUP,DOSE,WT,AGE,SEX,EGFR,CRCL,BLQ
+[   0.02s] [ok   ] [generating the design] dataset accepted: 1200 rows, 1100 observations, 100 dose records, 100 subjects (0 without observations dropped)
+[   0.02s] [stage] [simulating the dataset from the truth model] simulating the dataset from the truth model
+[   0.02s] [ok   ] [simulating the dataset from the truth model] control stream parsed: 14 record(s), 18 $INPUT column(s), 8 THETA, 2 ETA, 1 EPS
+[   0.03s] [debug] [simulating the dataset from the truth model] wrote analysis.csv (78774 bytes)
+[   0.03s] [info ] [simulating the dataset from the truth model] reading dataset `projects/085_3cmt_iv_3grp_covariate_model\data\analysis.csv`
+[   0.04s] [info ] [simulating the dataset from the truth model] data columns as NONMEM reads them ($INPUT by position): 18 kept, 0 renamed, 0 dropped, 0 not in $INPUT
+[   0.04s] [debug] [simulating the dataset from the truth model]   delimiter comma; header present; columns: ID,TIME,AMT,RATE,ADDL,II,EVID,MDV,DV,CMT,GROUP,DOSE,WT,AGE,SEX,EGFR,CRCL,BLQ
+[   0.05s] [ok   ] [simulating the dataset from the truth model] dataset accepted: 1200 rows, 1100 observations, 100 dose records, 100 subjects (0 without observations dropped)
+[   0.05s] [ok   ] [simulating the dataset from the truth model] dataset: 100 subjects, 1100 observations
+[   0.05s] [stage] [fitting the base model (no covariates) by maximum likelihood] fitting the base model (no covariates) by maximum likelihood
+[   0.20s] [debug] [fitting the base model (no covariates) by maximum likelihood] fit of run101: iteration 1 OFV -2831.6943 (decrease 6.55e1)
+[   0.27s] [debug] [fitting the base model (no covariates) by maximum likelihood] fit of run101: iteration 2 OFV -3114.1560 (decrease 2.82e2)
+[   0.35s] [debug] [fitting the base model (no covariates) by maximum likelihood] fit of run101: iteration 3 OFV -3155.0495 (decrease 4.09e1)
+[   0.42s] [debug] [fitting the base model (no covariates) by maximum likelihood] fit of run101: iteration 4 OFV -3188.1547 (decrease 3.31e1)
+[   0.49s] [debug] [fitting the base model (no covariates) by maximum likelihood] fit of run101: iteration 5 OFV -3190.1643 (decrease 2.01e0)
+[   0.58s] [debug] [fitting the base model (no covariates) by maximum likelihood] fit of run101: iteration 6 OFV -3190.8009 (decrease 6.37e-1)
+[   0.65s] [debug] [fitting the base model (no covariates) by maximum likelihood] fit of run101: iteration 7 OFV -3190.8305 (decrease 2.96e-2)
+[   0.72s] [debug] [fitting the base model (no covariates) by maximum likelihood] fit of run101: iteration 8 OFV -3190.8866 (decrease 5.61e-2)
+[   0.78s] [debug] [fitting the base model (no covariates) by maximum likelihood] fit of run101: iteration 9 OFV -3190.9854 (decrease 9.87e-2)
+[   0.86s] [debug] [fitting the base model (no covariates) by maximum likelihood] fit of run101: iteration 10 OFV -3191.2121 (decrease 2.27e-1)
+[   0.93s] [debug] [fitting the base model (no covariates) by maximum likelihood] fit of run101: iteration 11 OFV -3191.4026 (decrease 1.90e-1)
+[   1.00s] [debug] [fitting the base model (no covariates) by maximum likelihood] fit of run101: iteration 12 OFV -3191.5115 (decrease 1.09e-1)
+[   1.07s] [debug] [fitting the base model (no covariates) by maximum likelihood] fit of run101: iteration 13 OFV -3191.5246 (decrease 1.32e-2)
+[   1.14s] [debug] [fitting the base model (no covariates) by maximum likelihood] fit of run101: iteration 14 OFV -3191.5272 (decrease 2.56e-3)
+[   1.21s] [debug] [fitting the base model (no covariates) by maximum likelihood] fit of run101: iteration 15 OFV -3191.5313 (decrease 4.12e-3)
+[   1.28s] [debug] [fitting the base model (no covariates) by maximum likelihood] fit of run101: iteration 16 OFV -3191.5458 (decrease 1.45e-2)
+[   1.37s] [debug] [fitting the base model (no covariates) by maximum likelihood] fit of run101: iteration 17 OFV -3191.5727 (decrease 2.69e-2)
+[   1.46s] [debug] [fitting the base model (no covariates) by maximum likelihood] fit of run101: iteration 18 OFV -3191.6120 (decrease 3.94e-2)
+[   1.54s] [debug] [fitting the base model (no covariates) by maximum likelihood] fit of run101: iteration 19 OFV -3191.6521 (decrease 4.00e-2)
+[   1.62s] [debug] [fitting the base model (no covariates) by maximum likelihood] fit of run101: iteration 20 OFV -3191.6825 (decrease 3.05e-2)
+[   1.70s] [debug] [fitting the base model (no covariates) by maximum likelihood] fit of run101: iteration 21 OFV -3191.7118 (decrease 2.93e-2)
+[   1.77s] [debug] [fitting the base model (no covariates) by maximum likelihood] fit of run101: iteration 22 OFV -3191.7124 (decrease 5.84e-4)
+[   1.86s] [debug] [fitting the base model (no covariates) by maximum likelihood] fit of run101: iteration 23 OFV -3191.7506 (decrease 3.82e-2)
+[   1.93s] [debug] [fitting the base model (no covariates) by maximum likelihood] fit of run101: iteration 24 OFV -3191.7596 (decrease 8.99e-3)
+[   2.00s] [debug] [fitting the base model (no covariates) by maximum likelihood] fit of run101: iteration 25 OFV -3191.7723 (decrease 1.27e-2)
+[   2.07s] [debug] [fitting the base model (no covariates) by maximum likelihood] fit of run101: iteration 26 OFV -3191.7779 (decrease 5.67e-3)
+[   2.15s] [debug] [fitting the base model (no covariates) by maximum likelihood] fit of run101: iteration 27 OFV -3191.7840 (decrease 6.04e-3)
+[   2.26s] [debug] [fitting the base model (no covariates) by maximum likelihood] fit of run101: iteration 28 OFV -3191.7850 (decrease 1.01e-3)
+[   2.36s] [debug] [fitting the base model (no covariates) by maximum likelihood] fit of run101: iteration 29 OFV -3191.7923 (decrease 7.33e-3)
+[   2.48s] [debug] [fitting the base model (no covariates) by maximum likelihood] fit of run101: iteration 30 OFV -3191.7952 (decrease 2.90e-3)
+[   2.58s] [debug] [fitting the base model (no covariates) by maximum likelihood] fit of run101: iteration 31 OFV -3191.7979 (decrease 2.67e-3)
+[   2.69s] [debug] [fitting the base model (no covariates) by maximum likelihood] fit of run101: iteration 32 OFV -3191.8001 (decrease 2.22e-3)
+[   2.82s] [debug] [fitting the base model (no covariates) by maximum likelihood] fit of run101: iteration 33 OFV -3191.8022 (decrease 2.08e-3)
+[   2.92s] [debug] [fitting the base model (no covariates) by maximum likelihood] fit of run101: iteration 34 OFV -3191.8029 (decrease 7.20e-4)
+[   3.32s] [debug] [fitting the base model (no covariates) by maximum likelihood] fit of run101: iteration 35 OFV -3191.8033 (decrease 4.48e-4)
+[   3.58s] [debug] [fitting the base model (no covariates) by maximum likelihood] fit of run101: iteration 36 OFV -3191.8036 (decrease 3.09e-4)
+[   3.82s] [debug] [fitting the base model (no covariates) by maximum likelihood] fit of run101: iteration 37 OFV -3191.8038 (decrease 1.84e-4)
+[   4.34s] [debug] [fitting the base model (no covariates) by maximum likelihood] fit of run101: iteration 38 OFV -3191.8040 (decrease 1.60e-4)
+[   4.80s] [debug] [fitting the base model (no covariates) by maximum likelihood] fit of run101: iteration 39 OFV -3191.8040 (decrease 2.01e-5)
+[   5.27s] [debug] [fitting the base model (no covariates) by maximum likelihood] fit of run101: iteration 40 OFV -3191.8040 (decrease 1.10e-5)
+[   5.57s] [debug] [fitting the base model (no covariates) by maximum likelihood] fit of run101: iteration 41 OFV -3191.8040 (decrease 1.70e-7)
+[   5.88s] [debug] [fitting the base model (no covariates) by maximum likelihood] fit of run101: iteration 42 OFV -3191.8040 (decrease 6.04e-9)
+[   6.14s] [debug] [fitting the base model (no covariates) by maximum likelihood] fit of run101: iteration 43 OFV -3191.8040 (decrease 1.07e-8)
+[   6.14s] [ok   ] [fitting the base model (no covariates) by maximum likelihood] fit of run101: OFV = -3191.8040 after 43 iteration(s) (converged), THETA = [3.5240, 45.4163, 3.8599, 53.2442, 2.3645, 94.0994, 0.1480, 0.0180]
+[   6.14s] [stage] [covariance step (observed information at the optimum)] covariance step (observed information at the optimum)
+[   7.54s] [debug] [covariance step (observed information at the optimum)] wrote run101.ext (9441 bytes)
+[   7.54s] [debug] [covariance step (observed information at the optimum)] wrote run101.cov (1774 bytes)
+[   7.55s] [debug] [covariance step (observed information at the optimum)] wrote run101.cor (1774 bytes)
+[   7.55s] [debug] [covariance step (observed information at the optimum)] wrote run101.coi (1774 bytes)
+[   7.55s] [debug] [covariance step (observed information at the optimum)] wrote run101.ctl (4426 bytes)
+[   7.58s] [debug] [covariance step (observed information at the optimum)] wrote run101.phi (12237 bytes)
+[   7.58s] [info ] [covariance step (observed information at the optimum)] transcript: projects/085_3cmt_iv_3grp_covariate_model\log_7901727671.txt
+[   7.58s] [stage] [goodness-of-fit plots of run101 (base model)] goodness-of-fit plots of run101 (base model)
+[   7.58s] [debug] [goodness-of-fit plots of run101 (base model)] using 20 worker thread(s)
+[   7.59s] [info ] [goodness-of-fit plots of run101 (base model)] command-line overrides applied: approximation=foce-i, seed=20261085
+[   7.59s] [stage] [parsing the control stream] parsing the control stream
+[   7.59s] [debug] [parsing the control stream] parsing control stream `projects/085_3cmt_iv_3grp_covariate_model\models\run101.ctl`
+[   7.59s] [ok   ] [parsing the control stream] control stream parsed: 14 record(s), 18 $INPUT column(s), 8 THETA, 2 ETA, 1 EPS
+[   7.59s] [info ] [parsing the control stream] initial estimates from `projects/085_3cmt_iv_3grp_covariate_model\models\run101.ext`
+[   7.59s] [debug] [parsing the control stream] parsing .ext `projects/085_3cmt_iv_3grp_covariate_model\models\run101.ext`
+[   7.59s] [ok   ] [parsing the control stream] read 12 final estimate(s) from .ext, OFV = -3191.8040
+[   7.59s] [debug] [parsing the control stream] frozen state: 8 THETA, OMEGA 2x2, SIGMA 1x1
+[   7.59s] [stage] [reading the dataset] reading the dataset
+[   7.59s] [info ] [reading the dataset] reading dataset `projects/085_3cmt_iv_3grp_covariate_model\models\../data/analysis.csv`
+[   7.59s] [info ] [reading the dataset] data columns as NONMEM reads them ($INPUT by position): 18 kept, 0 renamed, 0 dropped, 0 not in $INPUT
+[   7.59s] [debug] [reading the dataset]   delimiter comma; header present; columns: ID,TIME,AMT,RATE,ADDL,II,EVID,MDV,DV,CMT,GROUP,DOSE,WT,AGE,SEX,EGFR,CRCL,BLQ
+[   7.60s] [ok   ] [reading the dataset] dataset accepted: 1200 rows, 1100 observations, 100 dose records, 100 subjects (0 without observations dropped)
+[   7.60s] [ok   ] [reading the dataset] model: ADVAN11 TRANS4: three compartments; 8 THETA, 2 ETA, 1 EPS; 100 subjects, 1100 observations
+[   7.60s] [info ] [reading the dataset] estimating 10 parameter(s) by foce_i (2 fixed); 2 ETA(s) integrated
+[   7.61s] [info ] [reading the dataset] initial OFV -3191.8040
+[   7.61s] [stage] [evaluation at the initial estimates (no estimation)] evaluation at the initial estimates (no estimation)
+[   7.61s] [stage] [individual estimates and predictions] individual estimates and predictions
+[   7.62s] [stage] [writing results] writing results
+[   7.62s] [debug] [writing results] wrote run101.ext (861 bytes)
+[   7.62s] [debug] [writing results] wrote run101.phi (12237 bytes)
+[   7.62s] [debug] [writing results] wrote run101.ctl (4427 bytes)
+[   7.63s] [debug] [writing results] wrote parameters.csv (1132 bytes)
+[   7.64s] [debug] [writing results] wrote fit_command.txt (308 bytes)
+[   7.65s] [debug] [writing results] wrote predictions.csv (221379 bytes)
+[   7.65s] [debug] [writing results] wrote fit_summary.txt (3461 bytes)
+[   7.65s] [debug] [writing results] wrote data_columns.csv (328 bytes)
+[   7.65s] [debug] [writing results] wrote fit_summary.json (5183 bytes)
+[   7.84s] [debug] [writing results] wrote plots/gof_dv_pred.png (261865 bytes)
+[   7.84s] [debug] [writing results] wrote plots/gof_dv_ipred.png (277901 bytes)
+[   7.85s] [debug] [writing results] wrote plots/gof_cwres_time.png (334624 bytes)
+[   7.85s] [debug] [writing results] wrote plots/gof_cwres_pred.png (431370 bytes)
+[   7.86s] [debug] [writing results] wrote plots/gof_iwres_ipred.png (406121 bytes)
+[   7.86s] [debug] [writing results] wrote plots/eta_dist_ETA1.png (296010 bytes)
+[   7.86s] [debug] [writing results] wrote plots/eta_dist_ETA2.png (312736 bytes)
+[   7.87s] [debug] [writing results] wrote plots/eta_pairs.png (271205 bytes)
+[   7.87s] [ok   ] [writing results] 8 publication plot(s) in plots/ (png, 2100×1500 px at 300 dpi)
+[   7.90s] [debug] [writing results] wrote report.html (661478 bytes)
+[   7.92s] [debug] [writing results] wrote checksums.sha256 (1519 bytes)
+[   7.92s] [ok   ] [writing results] 19 output file(s) written
+[   7.92s] [info ] [writing results] fit complete — OFV -3191.8040 (converged)
+[   7.97s] [ok   ] [writing results] 5 goodness-of-fit plot(s) of run101 in gof/
+[   7.97s] [stage] [fitting the covariate model (effects estimated)] fitting the covariate model (effects estimated)
+[   7.97s] [debug] [fitting the covariate model (effects estimated)] wrote run102.ctl (4949 bytes)
+[   7.97s] [debug] [fitting the covariate model (effects estimated)] parsing control stream `projects/085_3cmt_iv_3grp_covariate_model\models\run102.ctl`
+[   7.98s] [ok   ] [fitting the covariate model (effects estimated)] control stream parsed: 14 record(s), 18 $INPUT column(s), 11 THETA, 2 ETA, 1 EPS
+[   8.61s] [debug] [fitting the covariate model (effects estimated)] fit of run102: iteration 1 OFV -2884.1195 (decrease 7.30e1)
+[   8.95s] [debug] [fitting the covariate model (effects estimated)] fit of run102: iteration 2 OFV -3181.0271 (decrease 2.97e2)
+[   9.33s] [debug] [fitting the covariate model (effects estimated)] fit of run102: iteration 3 OFV -3233.1978 (decrease 5.22e1)
+[   9.75s] [debug] [fitting the covariate model (effects estimated)] fit of run102: iteration 4 OFV -3272.4303 (decrease 3.92e1)
+[  10.13s] [debug] [fitting the covariate model (effects estimated)] fit of run102: iteration 5 OFV -3275.5718 (decrease 3.14e0)
+[  10.50s] [debug] [fitting the covariate model (effects estimated)] fit of run102: iteration 6 OFV -3277.9547 (decrease 2.38e0)
+[  10.85s] [debug] [fitting the covariate model (effects estimated)] fit of run102: iteration 7 OFV -3278.0285 (decrease 7.38e-2)
+[  11.16s] [debug] [fitting the covariate model (effects estimated)] fit of run102: iteration 8 OFV -3278.0658 (decrease 3.73e-2)
+[  11.57s] [debug] [fitting the covariate model (effects estimated)] fit of run102: iteration 9 OFV -3278.1764 (decrease 1.11e-1)
+[  11.85s] [debug] [fitting the covariate model (effects estimated)] fit of run102: iteration 10 OFV -3278.3862 (decrease 2.10e-1)
+[  12.12s] [debug] [fitting the covariate model (effects estimated)] fit of run102: iteration 11 OFV -3278.6783 (decrease 2.92e-1)
+[  12.40s] [debug] [fitting the covariate model (effects estimated)] fit of run102: iteration 12 OFV -3278.8609 (decrease 1.83e-1)
+[  12.69s] [debug] [fitting the covariate model (effects estimated)] fit of run102: iteration 13 OFV -3278.9103 (decrease 4.94e-2)
+[  12.95s] [debug] [fitting the covariate model (effects estimated)] fit of run102: iteration 14 OFV -3278.9310 (decrease 2.07e-2)
+[  13.25s] [debug] [fitting the covariate model (effects estimated)] fit of run102: iteration 15 OFV -3278.9328 (decrease 1.82e-3)
+[  13.72s] [debug] [fitting the covariate model (effects estimated)] fit of run102: iteration 16 OFV -3278.9342 (decrease 1.44e-3)
+[  14.15s] [debug] [fitting the covariate model (effects estimated)] fit of run102: iteration 17 OFV -3278.9541 (decrease 1.99e-2)
+[  14.43s] [debug] [fitting the covariate model (effects estimated)] fit of run102: iteration 18 OFV -3278.9784 (decrease 2.44e-2)
+[  14.70s] [debug] [fitting the covariate model (effects estimated)] fit of run102: iteration 19 OFV -3279.0083 (decrease 2.99e-2)
+[  14.96s] [debug] [fitting the covariate model (effects estimated)] fit of run102: iteration 20 OFV -3279.0491 (decrease 4.08e-2)
+[  15.26s] [debug] [fitting the covariate model (effects estimated)] fit of run102: iteration 21 OFV -3279.0893 (decrease 4.02e-2)
+[  15.60s] [debug] [fitting the covariate model (effects estimated)] fit of run102: iteration 22 OFV -3279.0998 (decrease 1.05e-2)
+[  16.20s] [debug] [fitting the covariate model (effects estimated)] fit of run102: iteration 23 OFV -3279.1181 (decrease 1.83e-2)
+[  16.60s] [debug] [fitting the covariate model (effects estimated)] fit of run102: iteration 24 OFV -3279.1295 (decrease 1.14e-2)
+[  16.96s] [debug] [fitting the covariate model (effects estimated)] fit of run102: iteration 25 OFV -3279.1398 (decrease 1.03e-2)
+[  17.56s] [debug] [fitting the covariate model (effects estimated)] fit of run102: iteration 26 OFV -3279.1446 (decrease 4.82e-3)
+[  17.95s] [debug] [fitting the covariate model (effects estimated)] fit of run102: iteration 27 OFV -3279.1490 (decrease 4.40e-3)
+[  18.28s] [debug] [fitting the covariate model (effects estimated)] fit of run102: iteration 28 OFV -3279.1531 (decrease 4.06e-3)
+[  18.76s] [debug] [fitting the covariate model (effects estimated)] fit of run102: iteration 29 OFV -3279.1563 (decrease 3.17e-3)
+[  19.02s] [debug] [fitting the covariate model (effects estimated)] fit of run102: iteration 30 OFV -3279.1599 (decrease 3.63e-3)
+[  19.33s] [debug] [fitting the covariate model (effects estimated)] fit of run102: iteration 31 OFV -3279.1607 (decrease 7.62e-4)
+[  19.61s] [debug] [fitting the covariate model (effects estimated)] fit of run102: iteration 32 OFV -3279.1631 (decrease 2.44e-3)
+[  19.86s] [debug] [fitting the covariate model (effects estimated)] fit of run102: iteration 33 OFV -3279.1643 (decrease 1.16e-3)
+[  20.13s] [debug] [fitting the covariate model (effects estimated)] fit of run102: iteration 34 OFV -3279.1654 (decrease 1.10e-3)
+[  20.43s] [debug] [fitting the covariate model (effects estimated)] fit of run102: iteration 35 OFV -3279.1663 (decrease 9.39e-4)
+[  20.85s] [debug] [fitting the covariate model (effects estimated)] fit of run102: iteration 36 OFV -3279.1670 (decrease 7.28e-4)
+[  21.18s] [debug] [fitting the covariate model (effects estimated)] fit of run102: iteration 37 OFV -3279.1675 (decrease 4.36e-4)
+[  21.58s] [debug] [fitting the covariate model (effects estimated)] fit of run102: iteration 38 OFV -3279.1675 (decrease 8.73e-5)
+[  21.87s] [debug] [fitting the covariate model (effects estimated)] fit of run102: iteration 39 OFV -3279.1676 (decrease 7.49e-5)
+[  22.16s] [debug] [fitting the covariate model (effects estimated)] fit of run102: iteration 40 OFV -3279.1677 (decrease 7.57e-5)
+[  22.47s] [debug] [fitting the covariate model (effects estimated)] fit of run102: iteration 41 OFV -3279.1678 (decrease 6.56e-5)
+[  22.76s] [debug] [fitting the covariate model (effects estimated)] fit of run102: iteration 42 OFV -3279.1678 (decrease 1.53e-5)
+[  23.04s] [debug] [fitting the covariate model (effects estimated)] fit of run102: iteration 43 OFV -3279.1678 (decrease 2.22e-6)
+[  23.28s] [debug] [fitting the covariate model (effects estimated)] fit of run102: iteration 44 OFV -3279.1678 (decrease 6.07e-7)
+[  23.58s] [debug] [fitting the covariate model (effects estimated)] fit of run102: iteration 45 OFV -3279.1678 (decrease 1.21e-8)
+[  23.58s] [ok   ] [fitting the covariate model (effects estimated)] fit of run102: OFV = -3279.1678 after 45 iteration(s) (converged), THETA = [3.4901, 44.0801, 3.8165, 52.9890, 2.3703, 90.5689, 0.1478, 0.0181, 0.4481, 0.6941, 0.8541]
+[  23.58s] [stage] [covariance step (observed information at the optimum)] covariance step (observed information at the optimum)
+[  25.75s] [debug] [covariance step (observed information at the optimum)] wrote run102.ext (11931 bytes)
+[  25.75s] [debug] [covariance step (observed information at the optimum)] wrote run102.cov (2827 bytes)
+[  25.75s] [debug] [covariance step (observed information at the optimum)] wrote run102.cor (2827 bytes)
+[  25.75s] [debug] [covariance step (observed information at the optimum)] wrote run102.coi (2827 bytes)
+[  25.75s] [debug] [covariance step (observed information at the optimum)] wrote run102.ctl (4949 bytes)
+[  25.80s] [debug] [covariance step (observed information at the optimum)] wrote run102.phi (12237 bytes)
+[  25.80s] [debug] [covariance step (observed information at the optimum)] wrote nlmx.forest (566 bytes)
+[  25.80s] [stage] [goodness-of-fit plots of run102 (truth model)] goodness-of-fit plots of run102 (truth model)
+[  25.80s] [debug] [goodness-of-fit plots of run102 (truth model)] using 20 worker thread(s)
+[  25.80s] [info ] [goodness-of-fit plots of run102 (truth model)] command-line overrides applied: approximation=foce-i, seed=20261085
+[  25.80s] [stage] [parsing the control stream] parsing the control stream
+[  25.80s] [debug] [parsing the control stream] parsing control stream `projects/085_3cmt_iv_3grp_covariate_model\models\run102.ctl`
+[  25.81s] [ok   ] [parsing the control stream] control stream parsed: 14 record(s), 18 $INPUT column(s), 11 THETA, 2 ETA, 1 EPS
+[  25.81s] [info ] [parsing the control stream] initial estimates from `projects/085_3cmt_iv_3grp_covariate_model\models\run102.ext`
+[  25.81s] [debug] [parsing the control stream] parsing .ext `projects/085_3cmt_iv_3grp_covariate_model\models\run102.ext`
+[  25.81s] [ok   ] [parsing the control stream] read 15 final estimate(s) from .ext, OFV = -3279.1680
+[  25.81s] [debug] [parsing the control stream] frozen state: 11 THETA, OMEGA 2x2, SIGMA 1x1
+[  25.81s] [stage] [reading the dataset] reading the dataset
+[  25.81s] [info ] [reading the dataset] reading dataset `projects/085_3cmt_iv_3grp_covariate_model\models\../data/analysis.csv`
+[  25.81s] [info ] [reading the dataset] data columns as NONMEM reads them ($INPUT by position): 18 kept, 0 renamed, 0 dropped, 0 not in $INPUT
+[  25.81s] [debug] [reading the dataset]   delimiter comma; header present; columns: ID,TIME,AMT,RATE,ADDL,II,EVID,MDV,DV,CMT,GROUP,DOSE,WT,AGE,SEX,EGFR,CRCL,BLQ
+[  25.82s] [ok   ] [reading the dataset] dataset accepted: 1200 rows, 1100 observations, 100 dose records, 100 subjects (0 without observations dropped)
+[  25.82s] [ok   ] [reading the dataset] model: ADVAN11 TRANS4: three compartments; 11 THETA, 2 ETA, 1 EPS; 100 subjects, 1100 observations
+[  25.82s] [info ] [reading the dataset] estimating 13 parameter(s) by foce_i (2 fixed); 2 ETA(s) integrated
+[  25.85s] [info ] [reading the dataset] initial OFV -3279.1678
+[  25.85s] [stage] [evaluation at the initial estimates (no estimation)] evaluation at the initial estimates (no estimation)
+[  25.85s] [stage] [individual estimates and predictions] individual estimates and predictions
+[  25.86s] [stage] [writing results] writing results
+[  25.86s] [debug] [writing results] wrote run102.ext (1029 bytes)
+[  25.86s] [debug] [writing results] wrote run102.phi (12237 bytes)
+[  25.86s] [debug] [writing results] wrote run102.ctl (4929 bytes)
+[  25.87s] [debug] [writing results] wrote parameters.csv (1368 bytes)
+[  25.87s] [debug] [writing results] wrote fit_command.txt (308 bytes)
+[  25.89s] [debug] [writing results] wrote predictions.csv (221866 bytes)
+[  25.89s] [debug] [writing results] wrote fit_summary.txt (3860 bytes)
+[  25.90s] [debug] [writing results] wrote data_columns.csv (328 bytes)
+[  25.90s] [debug] [writing results] wrote fit_summary.json (6362 bytes)
+[  26.15s] [debug] [writing results] wrote plots/gof_dv_pred.png (289742 bytes)
+[  26.15s] [debug] [writing results] wrote plots/gof_dv_ipred.png (276940 bytes)
+[  26.16s] [debug] [writing results] wrote plots/gof_cwres_time.png (331760 bytes)
+[  26.16s] [debug] [writing results] wrote plots/gof_cwres_pred.png (454951 bytes)
+[  26.16s] [debug] [writing results] wrote plots/gof_iwres_ipred.png (406529 bytes)
+[  26.16s] [debug] [writing results] wrote plots/eta_dist_ETA1.png (310545 bytes)
+[  26.17s] [debug] [writing results] wrote plots/eta_dist_ETA2.png (290817 bytes)
+[  26.18s] [debug] [writing results] wrote plots/eta_pairs.png (273262 bytes)
+[  26.18s] [ok   ] [writing results] 8 publication plot(s) in plots/ (png, 2100×1500 px at 300 dpi)
+[  26.21s] [debug] [writing results] wrote report.html (660967 bytes)
+[  26.24s] [debug] [writing results] wrote checksums.sha256 (1519 bytes)
+[  26.24s] [ok   ] [writing results] 19 output file(s) written
+[  26.24s] [info ] [writing results] fit complete — OFV -3279.1678 (converged)
+[  26.27s] [ok   ] [writing results] 5 goodness-of-fit plot(s) of run102 in gof/
+[  26.27s] [debug] [writing results] wrote nlmx.covar (534 bytes)
+[  26.28s] [debug] [writing results] wrote nlmx.vpc (265 bytes)
+[  26.28s] [debug] [writing results] wrote nlmx.gen (857 bytes)
+[  26.28s] [debug] [writing results] wrote groups.csv (81 bytes)
+[  26.28s] [debug] [writing results] wrote README.md (1781 bytes)
+[  26.46s] [debug] [writing results] wrote checksums.sha256 (2633 bytes)
+[  26.46s] [ok   ] [writing results] project generated — total elapsed 26.46s

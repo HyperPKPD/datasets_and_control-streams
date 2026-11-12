@@ -1,0 +1,176 @@
+================================================================
+nlmx 4.16.2
+command line : C:\Users\askph\Desktop\PROJECTS\RUST\COVARI~1\nlmx\target\release\nlmx.exe generate --output projects/084_1cmt_oral_3grp_covariate_model_saem --structure 1cmt-oral --groups 3 --doses 50,100,200 --subjects-per-group 30 --effects CL~WT=0.75,V~WT=1,CL~SEX=0.8 --covariate-model --approximation saem --gof-plots --author Nora Wagner --seed 20261084
+started      : 2026-11-12 00:23:10 -0500
+log file     : projects/084_1cmt_oral_3grp_covariate_model_saem\log_1472142047.txt
+================================================================
+[   0.00s] [stage] [generating the design] generating the design
+[   0.00s] [info ] [generating the design] 1-compartment oral (first-order absorption); 3 group(s): Group 1 (30 × 50), Group 2 (30 × 100), Group 3 (30 × 200); 1 dose(s) every 24 h; 90 subject(s)
+[   0.01s] [debug] [generating the design] wrote analysis.csv (45927 bytes)
+[   0.01s] [debug] [generating the design] wrote run101.ctl (3969 bytes)
+[   0.01s] [debug] [generating the design] wrote truth.ctl (4234 bytes)
+[   0.02s] [debug] [generating the design] parsing control stream `projects/084_1cmt_oral_3grp_covariate_model_saem\models\run101.ctl`
+[   0.02s] [ok   ] [generating the design] control stream parsed: 15 record(s), 18 $INPUT column(s), 5 THETA, 2 ETA, 1 EPS
+[   0.02s] [info ] [generating the design] reading dataset `projects/084_1cmt_oral_3grp_covariate_model_saem\data\analysis.csv`
+[   0.02s] [info ] [generating the design] data columns as NONMEM reads them ($INPUT by position): 18 kept, 0 renamed, 0 dropped, 0 not in $INPUT
+[   0.02s] [debug] [generating the design]   delimiter comma; header present; columns: ID,TIME,AMT,RATE,ADDL,II,EVID,MDV,DV,CMT,GROUP,DOSE,WT,AGE,SEX,EGFR,CRCL,BLQ
+[   0.02s] [ok   ] [generating the design] dataset accepted: 900 rows, 810 observations, 90 dose records, 90 subjects (0 without observations dropped)
+[   0.03s] [stage] [simulating the dataset from the truth model] simulating the dataset from the truth model
+[   0.03s] [ok   ] [simulating the dataset from the truth model] control stream parsed: 15 record(s), 18 $INPUT column(s), 5 THETA, 2 ETA, 1 EPS
+[   0.03s] [debug] [simulating the dataset from the truth model] wrote analysis.csv (57917 bytes)
+[   0.03s] [info ] [simulating the dataset from the truth model] reading dataset `projects/084_1cmt_oral_3grp_covariate_model_saem\data\analysis.csv`
+[   0.04s] [info ] [simulating the dataset from the truth model] data columns as NONMEM reads them ($INPUT by position): 18 kept, 0 renamed, 0 dropped, 0 not in $INPUT
+[   0.04s] [debug] [simulating the dataset from the truth model]   delimiter comma; header present; columns: ID,TIME,AMT,RATE,ADDL,II,EVID,MDV,DV,CMT,GROUP,DOSE,WT,AGE,SEX,EGFR,CRCL,BLQ
+[   0.05s] [ok   ] [simulating the dataset from the truth model] dataset accepted: 900 rows, 810 observations, 90 dose records, 90 subjects (0 without observations dropped)
+[   0.05s] [ok   ] [simulating the dataset from the truth model] dataset: 90 subjects, 810 observations
+[   0.05s] [stage] [fitting the base model (no covariates) by maximum likelihood] fitting the base model (no covariates) by maximum likelihood
+[   0.05s] [stage] [SAEM fit of run101 (2 chain(s), burn-in up to 1000 with a stationarity test, 300 accumulation iterations)] SAEM fit of run101 (2 chain(s), burn-in up to 1000 with a stationarity test, 300 accumulation iterations)
+[   0.05s] [info ] [SAEM fit of run101 (2 chain(s), burn-in up to 1000 with a stationarity test, 300 accumulation iterations)] SAEM: ETA(1) is MU-linked to THETA(1) (log), updated in closed form
+[   0.05s] [info ] [SAEM fit of run101 (2 chain(s), burn-in up to 1000 with a stationarity test, 300 accumulation iterations)] SAEM: ETA(2) is MU-linked to THETA(2) (log), updated in closed form
+[   0.06s] [info ] [SAEM fit of run101 (2 chain(s), burn-in up to 1000 with a stationarity test, 300 accumulation iterations)] SAEM burn-in iteration    1: objective -1727.292  acceptance 0.03/0.25/0.49
+[   0.45s] [info ] [SAEM fit of run101 (2 chain(s), burn-in up to 1000 with a stationarity test, 300 accumulation iterations)] SAEM burn-in iteration   50: objective -1919.836  acceptance 0.05/0.41/0.43
+[   0.91s] [info ] [SAEM fit of run101 (2 chain(s), burn-in up to 1000 with a stationarity test, 300 accumulation iterations)] SAEM burn-in iteration  100: objective -1903.463  acceptance 0.04/0.41/0.41
+[   1.47s] [info ] [SAEM fit of run101 (2 chain(s), burn-in up to 1000 with a stationarity test, 300 accumulation iterations)] SAEM burn-in iteration  150: objective -1900.954  acceptance 0.03/0.40/0.42
+[   1.47s] [ok   ] [SAEM fit of run101 (2 chain(s), burn-in up to 1000 with a stationarity test, 300 accumulation iterations)] SAEM: burn-in stationary after 150 iterations; accumulating for 300
+[   2.01s] [info ] [SAEM fit of run101 (2 chain(s), burn-in up to 1000 with a stationarity test, 300 accumulation iterations)] SAEM accumulation iteration   50: objective -1901.270  acceptance 0.04/0.38/0.40
+[   2.59s] [info ] [SAEM fit of run101 (2 chain(s), burn-in up to 1000 with a stationarity test, 300 accumulation iterations)] SAEM accumulation iteration  100: objective -1932.483  acceptance 0.02/0.44/0.39
+[   3.84s] [info ] [SAEM fit of run101 (2 chain(s), burn-in up to 1000 with a stationarity test, 300 accumulation iterations)] SAEM accumulation iteration  150: objective -1923.840  acceptance 0.03/0.39/0.38
+[   5.00s] [info ] [SAEM fit of run101 (2 chain(s), burn-in up to 1000 with a stationarity test, 300 accumulation iterations)] SAEM accumulation iteration  200: objective -1924.900  acceptance 0.04/0.45/0.42
+[   6.47s] [info ] [SAEM fit of run101 (2 chain(s), burn-in up to 1000 with a stationarity test, 300 accumulation iterations)] SAEM accumulation iteration  250: objective -1917.053  acceptance 0.03/0.41/0.43
+[   7.84s] [info ] [SAEM fit of run101 (2 chain(s), burn-in up to 1000 with a stationarity test, 300 accumulation iterations)] SAEM accumulation iteration  300: objective -1896.279  acceptance 0.04/0.40/0.42
+[   8.12s] [ok   ] [SAEM fit of run101 (2 chain(s), burn-in up to 1000 with a stationarity test, 300 accumulation iterations)] SAEM fit of run101: OFV = -1156.2156 (importance sampling) after 450 iteration(s) (converged), THETA = [2.8026, 40.9152, 1.0836, 0.1554, 0.0021]
+[   8.12s] [stage] [covariance step (importance-sampling objective at fixed draws)] covariance step (importance-sampling objective at fixed draws)
+[  21.73s] [debug] [covariance step (importance-sampling objective at fixed draws)] R: pseudoinverse used, numerical rank 6 of 7 (eigenvalues [-7.0658e3, 4.1975e-1, 6.7378e1, 1.5052e3, 1.6649e3, 2.9364e3, ... , 5.0828e4])
+[  21.73s] [debug] [covariance step (importance-sampling objective at fixed draws)] R matrix (OFV Hessian): pseudoinverse used, numerical rank 6 of 7 (eigenvalues [-7.0658e3, 4.1975e-1, 6.7378e1, 1.5052e3, 1.6649e3, 2.9364e3, ... , 5.0828e4])
+[  21.73s] [debug] [covariance step (importance-sampling objective at fixed draws)] wrote run101.ext (69568 bytes)
+[  21.73s] [debug] [covariance step (importance-sampling objective at fixed draws)] wrote run101.cov (998 bytes)
+[  21.73s] [debug] [covariance step (importance-sampling objective at fixed draws)] wrote run101.cor (998 bytes)
+[  21.73s] [debug] [covariance step (importance-sampling objective at fixed draws)] wrote run101.coi (998 bytes)
+[  21.73s] [debug] [covariance step (importance-sampling objective at fixed draws)] wrote run101.ctl (3969 bytes)
+[  21.74s] [debug] [covariance step (importance-sampling objective at fixed draws)] wrote run101.phi (11027 bytes)
+[  21.75s] [info ] [covariance step (importance-sampling objective at fixed draws)] transcript: projects/084_1cmt_oral_3grp_covariate_model_saem\log_1472142047.txt
+[  21.75s] [stage] [goodness-of-fit plots of run101 (base model)] goodness-of-fit plots of run101 (base model)
+[  21.75s] [debug] [goodness-of-fit plots of run101 (base model)] using 20 worker thread(s)
+[  21.75s] [info ] [goodness-of-fit plots of run101 (base model)] command-line overrides applied: approximation=saem, seed=20261084
+[  21.75s] [stage] [parsing the control stream] parsing the control stream
+[  21.75s] [debug] [parsing the control stream] parsing control stream `projects/084_1cmt_oral_3grp_covariate_model_saem\models\run101.ctl`
+[  21.76s] [ok   ] [parsing the control stream] control stream parsed: 15 record(s), 18 $INPUT column(s), 5 THETA, 2 ETA, 1 EPS
+[  21.76s] [info ] [parsing the control stream] initial estimates from `projects/084_1cmt_oral_3grp_covariate_model_saem\models\run101.ext`
+[  21.76s] [debug] [parsing the control stream] parsing .ext `projects/084_1cmt_oral_3grp_covariate_model_saem\models\run101.ext`
+[  21.76s] [ok   ] [parsing the control stream] read 9 final estimate(s) from .ext, OFV = -1156.2160
+[  21.76s] [debug] [parsing the control stream] frozen state: 5 THETA, OMEGA 2x2, SIGMA 1x1
+[  21.76s] [stage] [reading the dataset] reading the dataset
+[  21.76s] [info ] [reading the dataset] reading dataset `projects/084_1cmt_oral_3grp_covariate_model_saem\models\../data/analysis.csv`
+[  21.76s] [info ] [reading the dataset] data columns as NONMEM reads them ($INPUT by position): 18 kept, 0 renamed, 0 dropped, 0 not in $INPUT
+[  21.76s] [debug] [reading the dataset]   delimiter comma; header present; columns: ID,TIME,AMT,RATE,ADDL,II,EVID,MDV,DV,CMT,GROUP,DOSE,WT,AGE,SEX,EGFR,CRCL,BLQ
+[  21.76s] [ok   ] [reading the dataset] dataset accepted: 900 rows, 810 observations, 90 dose records, 90 subjects (0 without observations dropped)
+[  21.76s] [ok   ] [reading the dataset] model: ADVAN2 TRANS2: one compartment with first-order absorption; 5 THETA, 2 ETA, 1 EPS; 90 subjects, 810 observations
+[  21.76s] [info ] [reading the dataset] estimating 7 parameter(s) by saem (2 fixed); 2 ETA(s) integrated
+[  21.97s] [info ] [reading the dataset] initial OFV -1156.4516 (importance sampling)
+[  21.97s] [stage] [evaluation at the initial estimates (no estimation)] evaluation at the initial estimates (no estimation)
+[  21.97s] [stage] [objective by importance sampling (300 draws per subject)] objective by importance sampling (300 draws per subject)
+[  22.29s] [ok   ] [objective by importance sampling (300 draws per subject)] OFV -1156.4516 (importance sampling)
+[  22.29s] [stage] [individual estimates and predictions] individual estimates and predictions
+[  22.30s] [stage] [writing results] writing results
+[  22.30s] [debug] [writing results] wrote run101.ext (718 bytes)
+[  22.30s] [debug] [writing results] wrote run101.phi (11027 bytes)
+[  22.31s] [debug] [writing results] wrote run101.ctl (4000 bytes)
+[  22.31s] [debug] [writing results] wrote parameters.csv (827 bytes)
+[  22.31s] [debug] [writing results] wrote fit_command.txt (378 bytes)
+[  22.33s] [debug] [writing results] wrote predictions.csv (161244 bytes)
+[  22.34s] [debug] [writing results] wrote fit_summary.txt (3274 bytes)
+[  22.34s] [debug] [writing results] wrote data_columns.csv (328 bytes)
+[  22.34s] [debug] [writing results] wrote fit_summary.json (3971 bytes)
+[  22.49s] [debug] [writing results] wrote plots/gof_dv_pred.png (303716 bytes)
+[  22.49s] [debug] [writing results] wrote plots/gof_dv_ipred.png (308209 bytes)
+[  22.50s] [debug] [writing results] wrote plots/gof_cwres_time.png (328407 bytes)
+[  22.50s] [debug] [writing results] wrote plots/gof_cwres_pred.png (370562 bytes)
+[  22.50s] [debug] [writing results] wrote plots/gof_iwres_ipred.png (404256 bytes)
+[  22.50s] [debug] [writing results] wrote plots/eta_dist_ETA1.png (316477 bytes)
+[  22.51s] [debug] [writing results] wrote plots/eta_dist_ETA2.png (305218 bytes)
+[  22.51s] [debug] [writing results] wrote plots/eta_pairs.png (265515 bytes)
+[  22.51s] [ok   ] [writing results] 8 publication plot(s) in plots/ (png, 2100×1500 px at 300 dpi)
+[  22.53s] [debug] [writing results] wrote report.html (495940 bytes)
+[  22.55s] [debug] [writing results] wrote checksums.sha256 (1519 bytes)
+[  22.55s] [ok   ] [writing results] 19 output file(s) written
+[  22.55s] [info ] [writing results] fit complete — OFV -1156.4516 (converged)
+[  22.59s] [ok   ] [writing results] 5 goodness-of-fit plot(s) of run101 in gof/
+[  22.59s] [stage] [fitting the covariate model (effects estimated)] fitting the covariate model (effects estimated)
+[  22.59s] [debug] [fitting the covariate model (effects estimated)] wrote run102.ctl (4491 bytes)
+[  22.59s] [debug] [fitting the covariate model (effects estimated)] parsing control stream `projects/084_1cmt_oral_3grp_covariate_model_saem\models\run102.ctl`
+[  22.61s] [ok   ] [fitting the covariate model (effects estimated)] control stream parsed: 15 record(s), 18 $INPUT column(s), 8 THETA, 2 ETA, 1 EPS
+[  22.63s] [stage] [SAEM fit of run102 (2 chain(s), burn-in up to 1000 with a stationarity test, 300 accumulation iterations)] SAEM fit of run102 (2 chain(s), burn-in up to 1000 with a stationarity test, 300 accumulation iterations)
+[  22.63s] [info ] [SAEM fit of run102 (2 chain(s), burn-in up to 1000 with a stationarity test, 300 accumulation iterations)] SAEM: ETA(1) is MU-linked to THETA(1) (log), updated in closed form
+[  22.63s] [info ] [SAEM fit of run102 (2 chain(s), burn-in up to 1000 with a stationarity test, 300 accumulation iterations)] SAEM: ETA(2) is MU-linked to THETA(2) (log), updated in closed form
+[  22.66s] [info ] [SAEM fit of run102 (2 chain(s), burn-in up to 1000 with a stationarity test, 300 accumulation iterations)] SAEM burn-in iteration    1: objective -1765.372  acceptance 0.03/0.25/0.49
+[  24.72s] [info ] [SAEM fit of run102 (2 chain(s), burn-in up to 1000 with a stationarity test, 300 accumulation iterations)] SAEM burn-in iteration   50: objective -2002.933  acceptance 0.07/0.39/0.44
+[  26.60s] [info ] [SAEM fit of run102 (2 chain(s), burn-in up to 1000 with a stationarity test, 300 accumulation iterations)] SAEM burn-in iteration  100: objective -2033.003  acceptance 0.07/0.41/0.40
+[  26.60s] [ok   ] [SAEM fit of run102 (2 chain(s), burn-in up to 1000 with a stationarity test, 300 accumulation iterations)] SAEM: burn-in stationary after 100 iterations; accumulating for 300
+[  28.60s] [info ] [SAEM fit of run102 (2 chain(s), burn-in up to 1000 with a stationarity test, 300 accumulation iterations)] SAEM accumulation iteration   50: objective -2020.339  acceptance 0.04/0.41/0.42
+[  30.90s] [info ] [SAEM fit of run102 (2 chain(s), burn-in up to 1000 with a stationarity test, 300 accumulation iterations)] SAEM accumulation iteration  100: objective -2006.427  acceptance 0.06/0.37/0.40
+[  32.84s] [info ] [SAEM fit of run102 (2 chain(s), burn-in up to 1000 with a stationarity test, 300 accumulation iterations)] SAEM accumulation iteration  150: objective -2028.443  acceptance 0.04/0.44/0.39
+[  34.85s] [info ] [SAEM fit of run102 (2 chain(s), burn-in up to 1000 with a stationarity test, 300 accumulation iterations)] SAEM accumulation iteration  200: objective -2031.585  acceptance 0.06/0.38/0.39
+[  36.92s] [info ] [SAEM fit of run102 (2 chain(s), burn-in up to 1000 with a stationarity test, 300 accumulation iterations)] SAEM accumulation iteration  250: objective -2008.946  acceptance 0.07/0.45/0.42
+[  38.91s] [info ] [SAEM fit of run102 (2 chain(s), burn-in up to 1000 with a stationarity test, 300 accumulation iterations)] SAEM accumulation iteration  300: objective -2015.993  acceptance 0.07/0.42/0.43
+[  39.13s] [ok   ] [SAEM fit of run102 (2 chain(s), burn-in up to 1000 with a stationarity test, 300 accumulation iterations)] SAEM fit of run102: OFV = -1252.4275 (importance sampling) after 400 iteration(s) (converged), THETA = [3.2548, 41.9269, 1.0799, 0.1545, 0.0110, -0.1748, 1.0643, 1.0073]
+[  39.13s] [stage] [covariance step (importance-sampling objective at fixed draws)] covariance step (importance-sampling objective at fixed draws)
+[  66.65s] [debug] [covariance step (importance-sampling objective at fixed draws)] wrote run102.ext (78886 bytes)
+[  66.65s] [debug] [covariance step (importance-sampling objective at fixed draws)] wrote run102.cov (1799 bytes)
+[  66.65s] [debug] [covariance step (importance-sampling objective at fixed draws)] wrote run102.cor (1799 bytes)
+[  66.65s] [debug] [covariance step (importance-sampling objective at fixed draws)] wrote run102.coi (1799 bytes)
+[  66.65s] [debug] [covariance step (importance-sampling objective at fixed draws)] wrote run102.ctl (4491 bytes)
+[  66.66s] [debug] [covariance step (importance-sampling objective at fixed draws)] wrote run102.phi (11027 bytes)
+[  66.66s] [debug] [covariance step (importance-sampling objective at fixed draws)] wrote nlmx.forest (564 bytes)
+[  66.66s] [stage] [goodness-of-fit plots of run102 (truth model)] goodness-of-fit plots of run102 (truth model)
+[  66.66s] [debug] [goodness-of-fit plots of run102 (truth model)] using 20 worker thread(s)
+[  66.66s] [info ] [goodness-of-fit plots of run102 (truth model)] command-line overrides applied: approximation=saem, seed=20261084
+[  66.66s] [stage] [parsing the control stream] parsing the control stream
+[  66.66s] [debug] [parsing the control stream] parsing control stream `projects/084_1cmt_oral_3grp_covariate_model_saem\models\run102.ctl`
+[  66.67s] [ok   ] [parsing the control stream] control stream parsed: 15 record(s), 18 $INPUT column(s), 8 THETA, 2 ETA, 1 EPS
+[  66.67s] [info ] [parsing the control stream] initial estimates from `projects/084_1cmt_oral_3grp_covariate_model_saem\models\run102.ext`
+[  66.67s] [debug] [parsing the control stream] parsing .ext `projects/084_1cmt_oral_3grp_covariate_model_saem\models\run102.ext`
+[  66.70s] [ok   ] [parsing the control stream] read 12 final estimate(s) from .ext, OFV = -1252.4270
+[  66.70s] [debug] [parsing the control stream] frozen state: 8 THETA, OMEGA 2x2, SIGMA 1x1
+[  66.70s] [stage] [reading the dataset] reading the dataset
+[  66.70s] [info ] [reading the dataset] reading dataset `projects/084_1cmt_oral_3grp_covariate_model_saem\models\../data/analysis.csv`
+[  66.70s] [info ] [reading the dataset] data columns as NONMEM reads them ($INPUT by position): 18 kept, 0 renamed, 0 dropped, 0 not in $INPUT
+[  66.70s] [debug] [reading the dataset]   delimiter comma; header present; columns: ID,TIME,AMT,RATE,ADDL,II,EVID,MDV,DV,CMT,GROUP,DOSE,WT,AGE,SEX,EGFR,CRCL,BLQ
+[  66.71s] [ok   ] [reading the dataset] dataset accepted: 900 rows, 810 observations, 90 dose records, 90 subjects (0 without observations dropped)
+[  66.71s] [ok   ] [reading the dataset] model: ADVAN2 TRANS2: one compartment with first-order absorption; 8 THETA, 2 ETA, 1 EPS; 90 subjects, 810 observations
+[  66.71s] [info ] [reading the dataset] estimating 10 parameter(s) by saem (2 fixed); 2 ETA(s) integrated
+[  66.95s] [info ] [reading the dataset] initial OFV -1252.6809 (importance sampling)
+[  66.96s] [stage] [evaluation at the initial estimates (no estimation)] evaluation at the initial estimates (no estimation)
+[  66.96s] [stage] [objective by importance sampling (300 draws per subject)] objective by importance sampling (300 draws per subject)
+[  67.24s] [ok   ] [objective by importance sampling (300 draws per subject)] OFV -1252.6809 (importance sampling)
+[  67.24s] [stage] [individual estimates and predictions] individual estimates and predictions
+[  67.25s] [stage] [writing results] writing results
+[  67.25s] [debug] [writing results] wrote run102.ext (886 bytes)
+[  67.25s] [debug] [writing results] wrote run102.phi (11027 bytes)
+[  67.26s] [debug] [writing results] wrote run102.ctl (4499 bytes)
+[  67.26s] [debug] [writing results] wrote parameters.csv (1065 bytes)
+[  67.26s] [debug] [writing results] wrote fit_command.txt (378 bytes)
+[  67.27s] [debug] [writing results] wrote predictions.csv (161452 bytes)
+[  67.27s] [debug] [writing results] wrote fit_summary.txt (3672 bytes)
+[  67.28s] [debug] [writing results] wrote data_columns.csv (328 bytes)
+[  67.29s] [debug] [writing results] wrote fit_summary.json (5150 bytes)
+[  67.41s] [debug] [writing results] wrote plots/gof_dv_pred.png (337182 bytes)
+[  67.41s] [debug] [writing results] wrote plots/gof_dv_ipred.png (306928 bytes)
+[  67.42s] [debug] [writing results] wrote plots/gof_cwres_time.png (330513 bytes)
+[  67.42s] [debug] [writing results] wrote plots/gof_cwres_pred.png (414129 bytes)
+[  67.42s] [debug] [writing results] wrote plots/gof_iwres_ipred.png (403354 bytes)
+[  67.42s] [debug] [writing results] wrote plots/eta_dist_ETA1.png (286187 bytes)
+[  67.42s] [debug] [writing results] wrote plots/eta_dist_ETA2.png (282970 bytes)
+[  67.43s] [debug] [writing results] wrote plots/eta_pairs.png (257452 bytes)
+[  67.43s] [ok   ] [writing results] 8 publication plot(s) in plots/ (png, 2100×1500 px at 300 dpi)
+[  67.45s] [debug] [writing results] wrote report.html (494915 bytes)
+[  67.47s] [debug] [writing results] wrote checksums.sha256 (1519 bytes)
+[  67.47s] [ok   ] [writing results] 19 output file(s) written
+[  67.47s] [info ] [writing results] fit complete — OFV -1252.6809 (converged)
+[  67.50s] [ok   ] [writing results] 5 goodness-of-fit plot(s) of run102 in gof/
+[  67.50s] [debug] [writing results] wrote nlmx.covar (529 bytes)
+[  67.51s] [debug] [writing results] wrote nlmx.vpc (265 bytes)
+[  67.51s] [debug] [writing results] wrote nlmx.gen (853 bytes)
+[  67.51s] [debug] [writing results] wrote groups.csv (81 bytes)
+[  67.51s] [debug] [writing results] wrote README.md (1788 bytes)
+[  67.64s] [debug] [writing results] wrote checksums.sha256 (2633 bytes)
+[  67.64s] [ok   ] [writing results] project generated — total elapsed 67.64s
