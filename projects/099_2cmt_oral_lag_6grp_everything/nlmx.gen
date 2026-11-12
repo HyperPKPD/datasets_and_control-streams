@@ -1,0 +1,55 @@
+# nlmx generate settings actually used. Repeat with:
+#   nlmx generate -c nlmx.gen --output <folder>
+
+[design]
+structure = "2cmt-oral-lag"
+ode = false
+error = "combined"
+
+[groups]
+names = ["A", "B", "C", "D", "E", "F"]
+doses = [10, 20, 40, 80, 160, 320]
+subjects = [15, 15, 20, 20, 25, 25]
+
+[regimen]
+n_doses = 10
+interval = 12
+infusion_duration = 1
+
+[sampling]
+times = [0.5, 1, 1.5, 2, 3, 4, 6, 8, 12]
+sparse = 5
+lloq = 0.05
+
+[parameters]
+CL = 4
+V = 40
+Q = 4
+VP = 60
+KA = 1.3
+ALAG = 0.4
+
+[variability]
+iiv = { CL = 35, KA = 45, Q = 25, V = 25, VP = 30 }
+proportional_error = 18
+additive_error = 0.01
+
+[covariates]
+effects = { "CL~EGFR" = 0.5, "CL~WT" = 0.75, "KA~AGE" = -0.2, "V~WT" = 1 }
+covariate_model = true
+
+[population]
+wt_median = 70
+wt_cv = 25
+age_mean = 45
+age_sd = 15
+p_sex = 0.5
+egfr_median = 95
+egfr_cv = 30
+crcl_noise = 5
+
+[output]
+seed = 20261099
+fit = true
+gof_plots = true
+author = "Maryam Wagner"
