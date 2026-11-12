@@ -1,0 +1,53 @@
+# nlmx generate settings actually used. Repeat with:
+#   nlmx generate -c nlmx.gen --output <folder>
+
+[design]
+structure = "2cmt-infusion"
+ode = true
+error = "combined"
+
+[groups]
+names = ["Group 1", "Group 2", "Group 3"]
+doses = [150, 300, 600]
+subjects = [34, 33, 33]
+
+[regimen]
+n_doses = 6
+interval = 336
+infusion_duration = 1
+
+[sampling]
+times = [1, 24, 72, 168, 336]
+sparse = 0
+lloq = 0
+
+[parameters]
+CL = 0.01
+V = 3
+Q = 0.02
+VP = 2.5
+
+[variability]
+iiv = { CL = 30, V = 20 }
+proportional_error = 15
+additive_error = 0.02
+
+[covariates]
+effects = { "CL~WT" = 0.75, "V~WT" = 0.6 }
+covariate_model = false
+
+[population]
+wt_median = 70
+wt_cv = 25
+age_mean = 45
+age_sd = 15
+p_sex = 0.5
+egfr_median = 95
+egfr_cv = 30
+crcl_noise = 5
+
+[output]
+seed = 20261094
+fit = true
+gof_plots = true
+author = "Haruto Brooks"

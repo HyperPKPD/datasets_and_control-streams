@@ -1,0 +1,13 @@
+# VPC settings of the generated project (`nlmx vpc --print-config` writes the full template)
+[inputs]
+control_stream = "models/run101.ctl"
+
+[vpc]
+type = "pcvpc"
+samples = 500
+stratify_on = ["GROUP"]   # one panel per treatment group
+lloq = 0.5
+blq_flag = "BLQ"
+
+[output]
+directory = "out_vpc"
