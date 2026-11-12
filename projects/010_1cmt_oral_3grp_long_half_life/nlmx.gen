@@ -1,0 +1,52 @@
+# nlmx generate settings actually used. Repeat with:
+#   nlmx generate -c nlmx.gen --output <folder>
+
+[design]
+structure = "1cmt-oral"
+ode = false
+error = "combined"
+
+[groups]
+names = ["Group 1", "Group 2", "Group 3"]
+doses = [10, 20, 40]
+subjects = [34, 33, 33]
+
+[regimen]
+n_doses = 1
+interval = 24
+infusion_duration = 1
+
+[sampling]
+times = [1, 2, 4, 8, 24, 48, 72, 120, 168, 240]
+sparse = 0
+lloq = 0
+
+[parameters]
+CL = 0.6
+V = 70
+KA = 0.8
+
+[variability]
+iiv = { CL = 30, V = 25 }
+proportional_error = 15
+additive_error = 0.02
+
+[covariates]
+effects = { "CL~EGFR" = 0.6, "CL~WT" = 0.75, "V~WT" = 1 }
+covariate_model = false
+
+[population]
+wt_median = 70
+wt_cv = 25
+age_mean = 45
+age_sd = 15
+p_sex = 0.5
+egfr_median = 95
+egfr_cv = 30
+crcl_noise = 5
+
+[output]
+seed = 20261010
+fit = true
+gof_plots = true
+author = "Greta Fischer"
