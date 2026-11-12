@@ -1,0 +1,17 @@
+# nlmx covariate analysis of the generated project (TOML syntax).
+# Truth: CL~EGFR exponent 0.6, CL~WT exponent 0.75, V1~WT exponent 1; CRCL is a near-copy of EGFR.
+# Settings not written here keep their defaults (`nlmx schema`).
+
+method = "frozen"            # frozen | posterior | both (or --method)
+
+[input]
+model_dir = "models"
+run_stem  = "run101"
+
+[output]
+directory = "out"
+
+# covariates to test per parameter; types and equations are worked out
+[covariates]
+CL = ["WT", "AGE", "SEX", "EGFR", "CRCL"]
+V1 = ["WT", "AGE", "SEX"]
