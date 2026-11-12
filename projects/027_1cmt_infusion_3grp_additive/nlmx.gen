@@ -1,0 +1,51 @@
+# nlmx generate settings actually used. Repeat with:
+#   nlmx generate -c nlmx.gen --output <folder>
+
+[design]
+structure = "1cmt-infusion"
+ode = false
+error = "additive"
+
+[groups]
+names = ["Group 1", "Group 2", "Group 3"]
+doses = [100, 200, 400]
+subjects = [34, 33, 33]
+
+[regimen]
+n_doses = 1
+interval = 24
+infusion_duration = 1
+
+[sampling]
+times = [0.5, 1, 1.25, 1.5, 2, 4, 8, 12, 24]
+sparse = 0
+lloq = 0
+
+[parameters]
+CL = 3.2
+V = 42
+
+[variability]
+iiv = { CL = 30, V = 25 }
+proportional_error = 15
+additive_error = 0.1
+
+[covariates]
+effects = { "CL~EGFR" = 0.6, "CL~WT" = 0.75, "V~WT" = 1 }
+covariate_model = false
+
+[population]
+wt_median = 70
+wt_cv = 25
+age_mean = 45
+age_sd = 15
+p_sex = 0.5
+egfr_median = 95
+egfr_cv = 30
+crcl_noise = 5
+
+[output]
+seed = 20261027
+fit = true
+gof_plots = true
+author = "Kaito Osei"
