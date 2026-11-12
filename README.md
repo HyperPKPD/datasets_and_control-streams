@@ -1,105 +1,65 @@
 # Population PK Open Benchmarks & Models Repository
 
-Welcome to the **Population PK Models & Benchmarks** repository. This repository serves as a collection of fully reproducible, end-to-end Population Pharmacokinetic (PopPK) modeling projects. 
+Welcome to the **Population PK Models & Benchmarks** repository. This repository is a collection of fully reproducible, end-to-end population pharmacokinetic (PopPK) modelling projects.
 
-Each directory represents an independent, self-contained modeling project complete with simulated datasets, NONMEM control streams, model diagnostics/fitted results, and `nlmx` project configurations. All code, datasets, and configurations in this repository are open and free to use for benchmarking, educational, and research purposes.
+Each directory is an independent, self-contained modelling project with a simulated dataset, NONMEM control streams, fitted results and diagnostics, and `nlmx` project configurations. All code, datasets and configurations in this repository are open and free to use for benchmarking, education and research.
 
----
+## What is here
 
-## 📁 Repository Structure
+| file | what it is |
+|---|---|
+| [`projects.md`](projects.md) | the problem statement and the 100 `nlmx generate` commands, from the simplest project to the most complex |
+| [`run.R`](run.R) | runs the 100 commands of `projects.md` one by one from R (`Rscript run.R`), with a log per project and `run_summary.csv` |
+| `run_all.ps1`, `run_all.sh` | the same 100 commands as one script (PowerShell, bash) |
+| `projects/` | the generated projects, one folder each (made by the commands; not stored until you run them) |
 
-The repository is organized by individual project directories. Aside from a shared or project-level `plots/` directory, each project folder adheres to a standardized structure:
+## The collection
 
-```text
-.
-├── project_name/
-│   ├── data/
-│   │   ├── analysis.csv     # Simulated analysis dataset (GROUP and DOSE identify treatment groups)
-│   │   └── groups.csv       # Group definitions and metadata mapping
-│   ├── models/
-│   │   ├── run101.ctl       # Base model control stream (no covariates)
-│   │   ├── run101.ext       # Base model output / results (OFV, parameter estimates)
-│   │   ├── run102.ctl       # Full/Covariate model control stream with estimated effects
-│   │   └── run102.ext       # Covariate model output
-│   ├── truth.ctl            # Simulation control stream (ground truth model with true parameters)
-│   ├── nlmx.covar           # nlmx configuration for covariate analysis
-│   ├── nlmx.vpc             # nlmx configuration for Visual Predictive Checks (VPC)
-│   ├── nlmx.forest          # nlmx configuration for forest plot generation
-│   ├── nlmx.gen             # Design configuration file to regenerate/reproduce the project
-│   └── plots/               # Generated Goodness-of-Fit (GOF), VPCs, and forest plots
+| set | projects | what it covers |
+|---|---|---|
+| A | 001–018 | One-compartment oral models (ADVAN2), single and repeated dosing |
+| B | 019–030 | One-compartment intravenous models: bolus (ADVAN1) and infusion |
+| C | 031–050 | Two-compartment models (ADVAN3/ADVAN4) |
+| D | 051–060 | Three-compartment models (ADVAN11/ADVAN12) |
+| E | 061–072 | The same systems as differential equations ($DES, ADVAN13) |
+| F | 073–088 | Estimation methods and true covariate models |
+| G | 089–100 | Realistic clinical-study archetypes |
+
+Every project has 2 to 6 treatment groups, goodness-of-fit plots, its own seed and its own author. The true parameter values and covariate effects are known (`truth.ctl`), so estimates can be checked against the truth.
+
+## Generating the projects
+
+With `nlmx` on your `PATH`, from this folder:
+
+```
+Rscript run.R                                            # any system with R
+powershell -ExecutionPolicy Bypass -File run_all.ps1     # Windows
+bash run_all.sh                                          # Linux / macOS
 ```
 
----
+or run any single command from [`projects.md`](projects.md). All 100 were run with nlmx 4.18.3 (Linux build) and took 21 minutes on two CPU cores.
 
-## What Each Project Contains
+## What each project folder holds
 
-Every project folder includes the following standardized components:
+```
+projects/NNN_description/
+├── data/analysis.csv        the simulated dataset (NONMEM format)
+├── groups.csv               the treatment groups: names, doses, sizes
+├── truth.ctl                the true model the data were simulated from
+├── models/run101.*          the base model, fitted (.ctl .ext .cov .cor .coi .phi)
+├── models/run102.*          the true covariate model, fitted (with --covariate-model)
+├── gof/                     goodness-of-fit plots (gof/svg/ with --plot-format both)
+├── nlmx.covar, nlmx.vpc     settings for covariate analysis and predictive checks
+├── nlmx.forest              forest-plot settings (designs with covariates)
+├── nlmx.gen                 the settings that make the project again
+├── checksums.sha256         SHA-256 of every file
+└── README.md                the design, the true values and the next commands
+```
 
-1. **Dataset (`data/`)**:
-   - `analysis.csv`: Complete simulated PK dataset. Columns like `GROUP` and `DOSE` categorize treatment arms.
-   - `groups.csv`: Lookup table for treatment group labels and descriptions.
+## Reproducibility
 
-2. **Simulation Model (`truth.ctl`)**:
-   - The exact NONMEM control stream used to simulate the dataset, specifying true parameter values and structural covariate relationships (e.g., clearance $CL$ or central volume $V_2$ weight-based scaling).
+A project is defined by its command. The same command and seed give the same dataset and the same fit on any machine and for any number of threads. `nlmx.gen` in each folder records every setting, and `nlmx generate -c nlmx.gen --output <folder>` makes the project again.
 
-3. **Fitted NONMEM Models (`models/`)**:
-   - **Base Model (`run101`)**: Structural model without covariate effects, establishing the reference Objective Function Value (OFV).
-   - **Covariate Model (`run102`)**: Model with estimated covariate parameters (e.g., estimating power/allometric exponents relative to ground truth).
+## License
 
-4. **`nlmx` Configurations**:
-   - Pre-configured `nlmx` files (`nlmx.covar`, `nlmx.vpc`, `nlmx.forest`, `nlmx.gen`) to rapidly run automated diagnostics, goodness-of-fit assessments, covariate searches, and project generation.
-
-5. **Diagnostics & Visualizations (`plots/`)**:
-   - Includes standard Goodness-of-Fit (GOF) plots (DV vs. PRED/IPRED, CWRES vs. TIME/PRED), Visual Predictive Checks (VPC), and forest plots summarizing covariate effects.
-
----
-
-## Getting Started
-
-### Prerequisites
-
-To execute the NONMEM control streams and `nlmx` workflows, ensure you have the following installed:
-* **NONMEM** (v7.3 or higher recommended)
-* **Perl-speaks-NONMEM (PsN)** (Optional, but recommended for model execution)
-* **nlmx** environment / tools configured for your workflow
-
-### Running a Model
-
-1. **Clone the Repository**:
-   ```bash
-   git clone https://github.com/your-username/your-repo-name.git
-   cd your-repo-name/project_name
-   ```
-
-2. **Execute Control Streams in NONMEM**:
-   Using PsN:
-   ```bash
-   execute models/run101.ctl
-   execute models/run102.ctl
-   ```
-
-3. **Reproduce or Re-run using `nlmx`**:
-   Execute project steps using the pre-configured `nlmx` files:
-   ```bash
-   # Regenerate project design
-   nlmx nlmx.gen
-
-   # Run VPCs or Covariate analyses
-   nlmx nlmx.vpc
-   nlmx nlmx.covar
-   ```
-
----
-
-## Example Project Summary
-
-| Model Run | Description | Key Parameters / Covariates | OFV |
-| :--- | :--- | :--- | :--- |
-| `run101` | Base Model | Structural parameters without covariates | `-124760.221` |
-| `run102` | Final Covariate Model | $CL_{WT} = 0.7493$ (Truth: 0.75)<br>$V2_{WT} = 0.9218$ (Truth: 1.00) | `-125853.224` |
-
----
-
-## 📜 License & Usage
-
-All models, code, and datasets in this repository are free and open-source. Feel free to use, adapt, and share them for educational, research, or benchmarking purposes.
+The projects are synthetic: no patient data are involved. The datasets, control streams and configurations are FREE to use for benchmarking, education and research. `nlmx` itself is licensed under CC BY-ND 4.0 (`nlmx --license`).
