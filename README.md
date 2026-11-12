@@ -11,6 +11,7 @@ Each directory is an independent, self-contained modelling project with a simula
 | [`projects.md`](projects.md) | the problem statement and the 100 `nlmx generate` commands, from the simplest project to the most complex |
 | [`run.R`](run.R) | runs the 100 commands of `projects.md` one by one from R (`Rscript run.R`), with a log per project and `run_summary.csv` |
 | `run_all.ps1`, `run_all.sh` | the same 100 commands as one script (PowerShell, bash) |
+| [`linkedin/`](linkedin/) | two LinkedIn posts announcing the collection, ten 4:5 cover images (1080 x 1350) and two looping GIFs |
 | `projects/` | the generated projects, one folder each (made by the commands; not stored until you run them) |
 
 ## The collection
@@ -37,7 +38,7 @@ powershell -ExecutionPolicy Bypass -File run_all.ps1     # Windows
 bash run_all.sh                                          # Linux / macOS
 ```
 
-or run any single command from [`projects.md`](projects.md). All 100 were run with nlmx 4.18.3 (Linux build) and took 21 minutes on two CPU cores.
+or run any single command from [`projects.md`](projects.md). All 100 were run with nlmx 4.18 (Linux build) and took 23 minutes on two CPU cores.
 
 ## What each project folder holds
 
@@ -62,4 +63,4 @@ A project is defined by its command. The same command and seed give the same dat
 
 ## License
 
-The projects are synthetic: no patient data are involved. The datasets, control streams and configurations are FREE to use for benchmarking, education and research. `nlmx` itself is licensed under CC BY-ND 4.0 (`nlmx --license`).
+The projects are synthetic: no patient data are involved. The datasets, control streams and configurations are free to use for benchmarking, education and research. `nlmx` itself is licensed under CC BY-ND 4.0 (`nlmx --license`).

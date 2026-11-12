@@ -1,0 +1,47 @@
+   0.00s stage generating the design
+   0.00s info  2-compartment oral (first-order absorption) with lag time, $DES (ADVAN13); 5 group(s): Group 1 (25 × 20), Group 2 (25 × 40), Group 3 (25 × 80), Group 4 (25 × 160), Group 5 (25 × 320); 1 dose(s) every 24 h; 125 subject(s)
+   0.02s ok    control stream parsed: 16 record(s), 18 $INPUT column(s), 8 THETA, 2 ETA, 1 EPS
+   0.02s info  reading dataset `projects/068_2cmt_oral_lag_ode_5grp_sparse\data\analysis.csv`
+   0.02s info  data columns as NONMEM reads them ($INPUT by position): 18 kept, 0 renamed, 0 dropped, 0 not in $INPUT
+   0.03s ok    dataset accepted: 750 rows, 625 observations, 125 dose records, 125 subjects (0 without observations dropped)
+   0.03s stage simulating the dataset from the truth model
+   0.03s ok    control stream parsed: 16 record(s), 18 $INPUT column(s), 8 THETA, 2 ETA, 1 EPS
+   0.03s info  reading dataset `projects/068_2cmt_oral_lag_ode_5grp_sparse\data\analysis.csv`
+   0.05s info  data columns as NONMEM reads them ($INPUT by position): 18 kept, 0 renamed, 0 dropped, 0 not in $INPUT
+   0.05s ok    dataset accepted: 750 rows, 625 observations, 125 dose records, 125 subjects (0 without observations dropped)
+   0.05s ok    dataset: 125 subjects, 625 observations
+   0.05s stage fitting the base model (no covariates) by maximum likelihood
+   4.34s ok    fit of run101: OFV = -2055.0724 after 18 iteration(s) (converged), THETA = [3.4903, 43.9285, 5.4082, 82.8240, 1.0341, 0.5058, 0.1607, 0.0188]
+   4.34s stage covariance step (observed information at the optimum)
+   6.38s info  transcript: projects/068_2cmt_oral_lag_ode_5grp_sparse\log_8005515497.txt
+   6.38s stage goodness-of-fit plots of run101 (base model)
+   6.38s info  command-line overrides applied: approximation=foce-i, seed=20261068
+   6.38s stage parsing the control stream
+   6.38s ok    control stream parsed: 16 record(s), 18 $INPUT column(s), 8 THETA, 2 ETA, 1 EPS
+   6.38s info  initial estimates from `projects/068_2cmt_oral_lag_ode_5grp_sparse\models\run101.ext`
+   6.38s ok    read 12 final estimate(s) from .ext, OFV = -2055.0720
+   6.38s stage reading the dataset
+   6.38s info  reading dataset `projects/068_2cmt_oral_lag_ode_5grp_sparse\models\../data/analysis.csv`
+   6.38s info  data columns as NONMEM reads them ($INPUT by position): 18 kept, 0 renamed, 0 dropped, 0 not in $INPUT
+   6.38s ok    dataset accepted: 750 rows, 625 observations, 125 dose records, 125 subjects (0 without observations dropped)
+   6.38s ok    model: ADVAN13: general nonlinear model ($DES) with 3 compartments (Dormand-Prince with automatic switch to Rosenbrock solver); 8 THETA, 2 ETA, 1 EPS; 125 subjects, 625 observations
+   6.38s info  estimating 10 parameter(s) by foce_i (2 fixed); 2 ETA(s) integrated
+   6.42s info  initial OFV -2055.0724
+   6.42s stage evaluation at the initial estimates (no estimation)
+   6.42s stage individual estimates and predictions
+   6.43s stage writing results
+   6.62s ok    8 publication plot(s) in plots/ (png, 2100×1500 px at 300 dpi)
+   6.67s ok    19 output file(s) written
+   6.67s info  fit complete — OFV -2055.0724 (converged)
+   6.70s ok    5 goodness-of-fit plot(s) of run101 in gof/
+Generated project written to projects/068_2cmt_oral_lag_ode_5grp_sparse
+  2-compartment oral (first-order absorption) with lag time, $DES (ADVAN13)
+  group 1 Group 1          dose 20       25 subjects
+  group 2 Group 2          dose 40       25 subjects
+  group 3 Group 3          dose 80       25 subjects
+  group 4 Group 4          dose 160      25 subjects
+  group 5 Group 5          dose 320      25 subjects
+  models/run101 — base model (no covariates), OFV -2055.072.
+  gof/ — goodness-of-fit plots (DV vs PRED, DV vs IPRED, CWRES vs TIME, CWRES vs PRED, IWRES vs IPRED; PNG; --plot-format svg or both also writes svg/) of run101 (base); every file name ends with the run and its role, for example gof_dv_pred_run101_base.png.
+Next: nlmx cov -c projects/068_2cmt_oral_lag_ode_5grp_sparse\nlmx.covar
+   6.78s ok    project generated — total elapsed 6.78s

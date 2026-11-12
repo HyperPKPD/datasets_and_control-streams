@@ -1,0 +1,44 @@
+   0.00s stage generating the design
+   0.00s info  1-compartment oral (first-order absorption); 2 group(s): Group 1 (50 × 100), Group 2 (50 × 200); 1 dose(s) every 24 h; 100 subject(s)
+   0.02s ok    control stream parsed: 14 record(s), 18 $INPUT column(s), 5 THETA, 3 ETA, 1 EPS
+   0.02s info  reading dataset `projects/008_1cmt_oral_2grp_ka_variability\data\analysis.csv`
+   0.02s info  data columns as NONMEM reads them ($INPUT by position): 18 kept, 0 renamed, 0 dropped, 0 not in $INPUT
+   0.02s ok    dataset accepted: 1000 rows, 900 observations, 100 dose records, 100 subjects (0 without observations dropped)
+   0.02s stage simulating the dataset from the truth model
+   0.02s ok    control stream parsed: 14 record(s), 18 $INPUT column(s), 5 THETA, 3 ETA, 1 EPS
+   0.03s info  reading dataset `projects/008_1cmt_oral_2grp_ka_variability\data\analysis.csv`
+   0.04s info  data columns as NONMEM reads them ($INPUT by position): 18 kept, 0 renamed, 0 dropped, 0 not in $INPUT
+   0.04s ok    dataset accepted: 1000 rows, 900 observations, 100 dose records, 100 subjects (0 without observations dropped)
+   0.04s ok    dataset: 100 subjects, 900 observations
+   0.04s stage fitting the base model (no covariates) by maximum likelihood
+   2.03s ok    fit of run101: OFV = -598.9399 after 24 iteration(s) (converged), THETA = [3.0998, 40.9120, 1.0516, 0.1544, 0.0001]
+   2.03s stage covariance step (observed information at the optimum)
+   2.28s info  transcript: projects/008_1cmt_oral_2grp_ka_variability\log_1556022789.txt
+   2.28s stage goodness-of-fit plots of run101 (base model)
+   2.28s info  command-line overrides applied: approximation=foce-i, seed=20261008
+   2.28s stage parsing the control stream
+   2.28s ok    control stream parsed: 14 record(s), 18 $INPUT column(s), 5 THETA, 3 ETA, 1 EPS
+   2.28s info  initial estimates from `projects/008_1cmt_oral_2grp_ka_variability\models\run101.ext`
+   2.28s ok    read 12 final estimate(s) from .ext, OFV = -598.9399
+   2.28s stage reading the dataset
+   2.28s info  reading dataset `projects/008_1cmt_oral_2grp_ka_variability\models\../data/analysis.csv`
+   2.28s info  data columns as NONMEM reads them ($INPUT by position): 18 kept, 0 renamed, 0 dropped, 0 not in $INPUT
+   2.28s ok    dataset accepted: 1000 rows, 900 observations, 100 dose records, 100 subjects (0 without observations dropped)
+   2.28s ok    model: ADVAN2 TRANS2: one compartment with first-order absorption; 5 THETA, 3 ETA, 1 EPS; 100 subjects, 900 observations
+   2.28s info  estimating 8 parameter(s) by foce_i (4 fixed); 3 ETA(s) integrated
+   2.29s info  initial OFV -598.9399
+   2.29s stage evaluation at the initial estimates (no estimation)
+   2.29s stage individual estimates and predictions
+   2.30s stage writing results
+   2.38s ok    9 publication plot(s) in plots/ (png, 2100×1500 px at 300 dpi)
+   2.41s ok    20 output file(s) written
+   2.41s info  fit complete — OFV -598.9399 (converged)
+   2.43s ok    5 goodness-of-fit plot(s) of run101 in gof/
+Generated project written to projects/008_1cmt_oral_2grp_ka_variability
+  1-compartment oral (first-order absorption)
+  group 1 Group 1          dose 100      50 subjects
+  group 2 Group 2          dose 200      50 subjects
+  models/run101 — base model (no covariates), OFV -598.940.
+  gof/ — goodness-of-fit plots (DV vs PRED, DV vs IPRED, CWRES vs TIME, CWRES vs PRED, IWRES vs IPRED; PNG; --plot-format svg or both also writes svg/) of run101 (base); every file name ends with the run and its role, for example gof_dv_pred_run101_base.png.
+Next: nlmx cov -c projects/008_1cmt_oral_2grp_ka_variability\nlmx.covar
+   2.49s ok    project generated — total elapsed 2.49s

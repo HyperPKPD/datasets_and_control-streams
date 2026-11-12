@@ -1,0 +1,45 @@
+   0.00s stage generating the design
+   0.00s info  3-compartment oral (first-order absorption), $DES (ADVAN13); 3 group(s): Group 1 (34 × 50), Group 2 (33 × 100), Group 3 (33 × 200); 1 dose(s) every 24 h; 100 subject(s)
+   0.04s ok    control stream parsed: 16 record(s), 18 $INPUT column(s), 9 THETA, 2 ETA, 1 EPS
+   0.04s info  reading dataset `projects/070_3cmt_oral_ode_3grp\data\analysis.csv`
+   0.04s info  data columns as NONMEM reads them ($INPUT by position): 18 kept, 0 renamed, 0 dropped, 0 not in $INPUT
+   0.04s ok    dataset accepted: 1200 rows, 1100 observations, 100 dose records, 100 subjects (0 without observations dropped)
+   0.05s stage simulating the dataset from the truth model
+   0.05s ok    control stream parsed: 16 record(s), 18 $INPUT column(s), 9 THETA, 2 ETA, 1 EPS
+   0.06s info  reading dataset `projects/070_3cmt_oral_ode_3grp\data\analysis.csv`
+   0.08s info  data columns as NONMEM reads them ($INPUT by position): 18 kept, 0 renamed, 0 dropped, 0 not in $INPUT
+   0.08s ok    dataset accepted: 1200 rows, 1100 observations, 100 dose records, 100 subjects (0 without observations dropped)
+   0.08s ok    dataset: 100 subjects, 1100 observations
+   0.08s stage fitting the base model (no covariates) by maximum likelihood
+  76.20s ok    fit of run101: OFV = -3517.3559 after 150 iteration(s) (iteration limit), THETA = [3.9749, 40.9877, 1.1831, 13.3200, 4.9246, 102.8594, 1.0436, 0.1580, 0.0179]
+  76.20s stage covariance step (observed information at the optimum)
+  79.65s info  transcript: projects/070_3cmt_oral_ode_3grp\log_6446749695.txt
+  79.65s stage goodness-of-fit plots of run101 (base model)
+  79.66s info  command-line overrides applied: approximation=foce-i, seed=20261070
+  79.67s stage parsing the control stream
+  79.67s ok    control stream parsed: 16 record(s), 18 $INPUT column(s), 9 THETA, 2 ETA, 1 EPS
+  79.67s info  initial estimates from `projects/070_3cmt_oral_ode_3grp\models\run101.ext`
+  79.67s ok    read 13 final estimate(s) from .ext, OFV = -3517.3560
+  79.67s stage reading the dataset
+  79.67s info  reading dataset `projects/070_3cmt_oral_ode_3grp\models\../data/analysis.csv`
+  79.67s info  data columns as NONMEM reads them ($INPUT by position): 18 kept, 0 renamed, 0 dropped, 0 not in $INPUT
+  79.68s ok    dataset accepted: 1200 rows, 1100 observations, 100 dose records, 100 subjects (0 without observations dropped)
+  79.68s ok    model: ADVAN13: general nonlinear model ($DES) with 4 compartments (Dormand-Prince with automatic switch to Rosenbrock solver); 9 THETA, 2 ETA, 1 EPS; 100 subjects, 1100 observations
+  79.68s info  estimating 11 parameter(s) by foce_i (2 fixed); 2 ETA(s) integrated
+  79.74s info  initial OFV -3517.3559
+  79.74s stage evaluation at the initial estimates (no estimation)
+  79.74s stage individual estimates and predictions
+  79.76s stage writing results
+  79.95s ok    8 publication plot(s) in plots/ (png, 2100×1500 px at 300 dpi)
+  80.00s ok    19 output file(s) written
+  80.00s info  fit complete — OFV -3517.3559 (converged)
+  80.02s ok    5 goodness-of-fit plot(s) of run101 in gof/
+Generated project written to projects/070_3cmt_oral_ode_3grp
+  3-compartment oral (first-order absorption), $DES (ADVAN13)
+  group 1 Group 1          dose 50       34 subjects
+  group 2 Group 2          dose 100      33 subjects
+  group 3 Group 3          dose 200      33 subjects
+  models/run101 — base model (no covariates), OFV -3517.356 (iteration limit).
+  gof/ — goodness-of-fit plots (DV vs PRED, DV vs IPRED, CWRES vs TIME, CWRES vs PRED, IWRES vs IPRED; PNG; --plot-format svg or both also writes svg/) of run101 (base); every file name ends with the run and its role, for example gof_dv_pred_run101_base.png.
+Next: nlmx cov -c projects/070_3cmt_oral_ode_3grp\nlmx.covar
+  80.09s ok    project generated — total elapsed 80.09s

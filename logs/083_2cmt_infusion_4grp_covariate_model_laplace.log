@@ -1,0 +1,71 @@
+   0.00s stage generating the design
+   0.00s info  2-compartment IV infusion; 4 group(s): Group 1 (25 × 50), Group 2 (25 × 100), Group 3 (25 × 200), Group 4 (25 × 400); 1 dose(s) every 24 h; 100 subject(s)
+   0.01s ok    control stream parsed: 14 record(s), 18 $INPUT column(s), 6 THETA, 2 ETA, 1 EPS
+   0.01s info  reading dataset `projects/083_2cmt_infusion_4grp_covariate_model_laplace\data\analysis.csv`
+   0.02s info  data columns as NONMEM reads them ($INPUT by position): 18 kept, 0 renamed, 0 dropped, 0 not in $INPUT
+   0.02s ok    dataset accepted: 1200 rows, 1100 observations, 100 dose records, 100 subjects (0 without observations dropped)
+   0.02s stage simulating the dataset from the truth model
+   0.02s ok    control stream parsed: 14 record(s), 18 $INPUT column(s), 6 THETA, 2 ETA, 1 EPS
+   0.03s info  reading dataset `projects/083_2cmt_infusion_4grp_covariate_model_laplace\data\analysis.csv`
+   0.04s info  data columns as NONMEM reads them ($INPUT by position): 18 kept, 0 renamed, 0 dropped, 0 not in $INPUT
+   0.04s ok    dataset accepted: 1200 rows, 1100 observations, 100 dose records, 100 subjects (0 without observations dropped)
+   0.04s ok    dataset: 100 subjects, 1100 observations
+   0.04s stage fitting the base model (no covariates) by maximum likelihood
+   1.29s ok    fit of run101: OFV = -2265.1265 after 11 iteration(s) (converged), THETA = [3.3260, 44.0515, 4.9226, 78.0398, 0.1484, 0.0188]
+   1.29s stage covariance step (observed information at the optimum)
+   1.80s info  transcript: projects/083_2cmt_infusion_4grp_covariate_model_laplace\log_0836627807.txt
+   1.80s stage goodness-of-fit plots of run101 (base model)
+   1.80s info  command-line overrides applied: approximation=laplace, seed=20261083
+   1.80s stage parsing the control stream
+   1.82s ok    control stream parsed: 14 record(s), 18 $INPUT column(s), 6 THETA, 2 ETA, 1 EPS
+   1.82s info  initial estimates from `projects/083_2cmt_infusion_4grp_covariate_model_laplace\models\run101.ext`
+   1.82s ok    read 10 final estimate(s) from .ext, OFV = -2265.1270
+   1.82s stage reading the dataset
+   1.82s info  reading dataset `projects/083_2cmt_infusion_4grp_covariate_model_laplace\models\../data/analysis.csv`
+   1.82s info  data columns as NONMEM reads them ($INPUT by position): 18 kept, 0 renamed, 0 dropped, 0 not in $INPUT
+   1.82s ok    dataset accepted: 1200 rows, 1100 observations, 100 dose records, 100 subjects (0 without observations dropped)
+   1.82s ok    model: ADVAN3 TRANS4: two compartments; 6 THETA, 2 ETA, 1 EPS; 100 subjects, 1100 observations
+   1.82s info  estimating 8 parameter(s) by laplace (2 fixed); 2 ETA(s) integrated
+   1.83s info  initial OFV -2265.1265
+   1.83s stage evaluation at the initial estimates (no estimation)
+   1.83s stage individual estimates and predictions
+   1.84s stage writing results
+   1.94s ok    8 publication plot(s) in plots/ (png, 2100×1500 px at 300 dpi)
+   2.02s ok    19 output file(s) written
+   2.02s info  fit complete — OFV -2265.1265 (converged)
+   2.03s ok    5 goodness-of-fit plot(s) of run101 in gof/
+   2.03s stage fitting the covariate model (effects estimated)
+   2.05s ok    control stream parsed: 14 record(s), 18 $INPUT column(s), 9 THETA, 2 ETA, 1 EPS
+   6.30s ok    fit of run102: OFV = -2373.7112 after 13 iteration(s) (converged), THETA = [3.3101, 41.9583, 4.9241, 77.9657, 0.1484, 0.0189, 0.4940, 0.6457, 0.9471]
+   6.30s stage covariance step (observed information at the optimum)
+   8.23s stage goodness-of-fit plots of run102 (truth model)
+   8.23s info  command-line overrides applied: approximation=laplace, seed=20261083
+   8.23s stage parsing the control stream
+   8.23s ok    control stream parsed: 14 record(s), 18 $INPUT column(s), 9 THETA, 2 ETA, 1 EPS
+   8.23s info  initial estimates from `projects/083_2cmt_infusion_4grp_covariate_model_laplace\models\run102.ext`
+   8.23s ok    read 13 final estimate(s) from .ext, OFV = -2373.7110
+   8.23s stage reading the dataset
+   8.23s info  reading dataset `projects/083_2cmt_infusion_4grp_covariate_model_laplace\models\../data/analysis.csv`
+   8.24s info  data columns as NONMEM reads them ($INPUT by position): 18 kept, 0 renamed, 0 dropped, 0 not in $INPUT
+   8.24s ok    dataset accepted: 1200 rows, 1100 observations, 100 dose records, 100 subjects (0 without observations dropped)
+   8.24s ok    model: ADVAN3 TRANS4: two compartments; 9 THETA, 2 ETA, 1 EPS; 100 subjects, 1100 observations
+   8.24s info  estimating 11 parameter(s) by laplace (2 fixed); 2 ETA(s) integrated
+   8.27s info  initial OFV -2373.7112
+   8.27s stage evaluation at the initial estimates (no estimation)
+   8.27s stage individual estimates and predictions
+   8.28s stage writing results
+   8.45s ok    8 publication plot(s) in plots/ (png, 2100×1500 px at 300 dpi)
+   8.51s ok    19 output file(s) written
+   8.51s info  fit complete — OFV -2373.7112 (converged)
+   8.54s ok    5 goodness-of-fit plot(s) of run102 in gof/
+Generated project written to projects/083_2cmt_infusion_4grp_covariate_model_laplace
+  2-compartment IV infusion
+  group 1 Group 1          dose 50       25 subjects
+  group 2 Group 2          dose 100      25 subjects
+  group 3 Group 3          dose 200      25 subjects
+  group 4 Group 4          dose 400      25 subjects
+  models/run101 — base model (no covariates), OFV -2265.127.
+  models/run102 — the true covariate model with its effects estimated, OFV -2373.711: CL~EGFR 0.494 (truth 0.5), CL~WT 0.6457 (truth 0.75), V1~WT 0.9471 (truth 1).
+  gof/ — goodness-of-fit plots (DV vs PRED, DV vs IPRED, CWRES vs TIME, CWRES vs PRED, IWRES vs IPRED; PNG; --plot-format svg or both also writes svg/) of run101 (base) and run102 (truth); every file name ends with the run and its role, for example gof_dv_pred_run102_truth.png.
+Next: nlmx cov -c projects/083_2cmt_infusion_4grp_covariate_model_laplace\nlmx.covar
+   8.69s ok    project generated — total elapsed 8.69s

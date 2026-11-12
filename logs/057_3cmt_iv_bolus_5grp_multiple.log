@@ -1,0 +1,47 @@
+   0.00s stage generating the design
+   0.00s info  3-compartment IV bolus; 5 group(s): Group 1 (20 × 20), Group 2 (20 × 40), Group 3 (20 × 80), Group 4 (20 × 160), Group 5 (20 × 320); 5 dose(s) every 24 h; 100 subject(s)
+   0.02s ok    control stream parsed: 14 record(s), 18 $INPUT column(s), 8 THETA, 2 ETA, 1 EPS
+   0.02s info  reading dataset `projects/057_3cmt_iv_bolus_5grp_multiple\data\analysis.csv`
+   0.02s info  data columns as NONMEM reads them ($INPUT by position): 18 kept, 0 renamed, 0 dropped, 0 not in $INPUT
+   0.03s ok    dataset accepted: 1800 rows, 1700 observations, 100 dose records, 100 subjects (0 without observations dropped)
+   0.03s stage simulating the dataset from the truth model
+   0.03s ok    control stream parsed: 14 record(s), 18 $INPUT column(s), 8 THETA, 2 ETA, 1 EPS
+   0.03s info  reading dataset `projects/057_3cmt_iv_bolus_5grp_multiple\data\analysis.csv`
+   0.04s info  data columns as NONMEM reads them ($INPUT by position): 18 kept, 0 renamed, 0 dropped, 0 not in $INPUT
+   0.05s ok    dataset accepted: 1800 rows, 1700 observations, 100 dose records, 100 subjects (0 without observations dropped)
+   0.05s ok    dataset: 100 subjects, 1700 observations
+   0.05s stage fitting the base model (no covariates) by maximum likelihood
+  17.27s ok    fit of run101: OFV = -3558.7578 after 59 iteration(s) (converged), THETA = [3.7720, 44.3825, 5.4304, 99.9916, 0.6480, 27.7039, 0.1565, 0.0187]
+  17.27s stage covariance step (observed information at the optimum)
+  19.17s info  transcript: projects/057_3cmt_iv_bolus_5grp_multiple\log_6852324623.txt
+  19.17s stage goodness-of-fit plots of run101 (base model)
+  19.17s info  command-line overrides applied: approximation=foce-i, seed=20261057
+  19.17s stage parsing the control stream
+  19.17s ok    control stream parsed: 14 record(s), 18 $INPUT column(s), 8 THETA, 2 ETA, 1 EPS
+  19.17s info  initial estimates from `projects/057_3cmt_iv_bolus_5grp_multiple\models\run101.ext`
+  19.17s ok    read 12 final estimate(s) from .ext, OFV = -3558.7580
+  19.17s stage reading the dataset
+  19.17s info  reading dataset `projects/057_3cmt_iv_bolus_5grp_multiple\models\../data/analysis.csv`
+  19.18s info  data columns as NONMEM reads them ($INPUT by position): 18 kept, 0 renamed, 0 dropped, 0 not in $INPUT
+  19.19s ok    dataset accepted: 1800 rows, 1700 observations, 100 dose records, 100 subjects (0 without observations dropped)
+  19.19s ok    model: ADVAN11 TRANS4: three compartments; 8 THETA, 2 ETA, 1 EPS; 100 subjects, 1700 observations
+  19.19s info  estimating 10 parameter(s) by foce_i (2 fixed); 2 ETA(s) integrated
+  19.24s info  initial OFV -3558.7578
+  19.24s stage evaluation at the initial estimates (no estimation)
+  19.24s stage individual estimates and predictions
+  19.27s stage writing results
+  19.62s ok    8 publication plot(s) in plots/ (png, 2100×1500 px at 300 dpi)
+  19.74s ok    19 output file(s) written
+  19.74s info  fit complete — OFV -3558.7578 (converged)
+  19.78s ok    5 goodness-of-fit plot(s) of run101 in gof/
+Generated project written to projects/057_3cmt_iv_bolus_5grp_multiple
+  3-compartment IV bolus
+  group 1 Group 1          dose 20       20 subjects
+  group 2 Group 2          dose 40       20 subjects
+  group 3 Group 3          dose 80       20 subjects
+  group 4 Group 4          dose 160      20 subjects
+  group 5 Group 5          dose 320      20 subjects
+  models/run101 — base model (no covariates), OFV -3558.758.
+  gof/ — goodness-of-fit plots (DV vs PRED, DV vs IPRED, CWRES vs TIME, CWRES vs PRED, IWRES vs IPRED; PNG; --plot-format svg or both also writes svg/) of run101 (base); every file name ends with the run and its role, for example gof_dv_pred_run101_base.png.
+Next: nlmx cov -c projects/057_3cmt_iv_bolus_5grp_multiple\nlmx.covar
+  19.91s ok    project generated — total elapsed 19.91s

@@ -1,0 +1,47 @@
+   0.00s stage generating the design
+   0.00s info  2-compartment IV infusion; 5 group(s): Group 1 (10 × 50), Group 2 (10 × 100), Group 3 (20 × 200), Group 4 (30 × 400), Group 5 (40 × 800); 1 dose(s) every 24 h; 110 subject(s)
+   0.02s ok    control stream parsed: 14 record(s), 18 $INPUT column(s), 6 THETA, 2 ETA, 1 EPS
+   0.02s info  reading dataset `projects/048_2cmt_infusion_5grp_unbalanced\data\analysis.csv`
+   0.03s info  data columns as NONMEM reads them ($INPUT by position): 18 kept, 0 renamed, 0 dropped, 0 not in $INPUT
+   0.04s ok    dataset accepted: 1320 rows, 1210 observations, 110 dose records, 110 subjects (0 without observations dropped)
+   0.04s stage simulating the dataset from the truth model
+   0.04s ok    control stream parsed: 14 record(s), 18 $INPUT column(s), 6 THETA, 2 ETA, 1 EPS
+   0.04s info  reading dataset `projects/048_2cmt_infusion_5grp_unbalanced\data\analysis.csv`
+   0.05s info  data columns as NONMEM reads them ($INPUT by position): 18 kept, 0 renamed, 0 dropped, 0 not in $INPUT
+   0.05s ok    dataset accepted: 1320 rows, 1210 observations, 110 dose records, 110 subjects (0 without observations dropped)
+   0.05s ok    dataset: 110 subjects, 1210 observations
+   0.05s stage fitting the base model (no covariates) by maximum likelihood
+   0.88s ok    fit of run101: OFV = -475.8034 after 12 iteration(s) (converged), THETA = [3.1136, 42.7877, 5.1947, 77.8459, 0.1489, 0.0178]
+   0.88s stage covariance step (observed information at the optimum)
+   1.35s info  transcript: projects/048_2cmt_infusion_5grp_unbalanced\log_7534813021.txt
+   1.35s stage goodness-of-fit plots of run101 (base model)
+   1.35s info  command-line overrides applied: approximation=foce-i, seed=20261048
+   1.35s stage parsing the control stream
+   1.40s ok    control stream parsed: 14 record(s), 18 $INPUT column(s), 6 THETA, 2 ETA, 1 EPS
+   1.40s info  initial estimates from `projects/048_2cmt_infusion_5grp_unbalanced\models\run101.ext`
+   1.40s ok    read 10 final estimate(s) from .ext, OFV = -475.8034
+   1.40s stage reading the dataset
+   1.40s info  reading dataset `projects/048_2cmt_infusion_5grp_unbalanced\models\../data/analysis.csv`
+   1.40s info  data columns as NONMEM reads them ($INPUT by position): 18 kept, 0 renamed, 0 dropped, 0 not in $INPUT
+   1.41s ok    dataset accepted: 1320 rows, 1210 observations, 110 dose records, 110 subjects (0 without observations dropped)
+   1.41s ok    model: ADVAN3 TRANS4: two compartments; 6 THETA, 2 ETA, 1 EPS; 110 subjects, 1210 observations
+   1.41s info  estimating 8 parameter(s) by foce_i (2 fixed); 2 ETA(s) integrated
+   1.42s info  initial OFV -475.8034
+   1.42s stage evaluation at the initial estimates (no estimation)
+   1.42s stage individual estimates and predictions
+   1.42s stage writing results
+   1.54s ok    8 publication plot(s) in plots/ (png, 2100×1500 px at 300 dpi)
+   1.59s ok    19 output file(s) written
+   1.59s info  fit complete — OFV -475.8034 (converged)
+   1.61s ok    5 goodness-of-fit plot(s) of run101 in gof/
+Generated project written to projects/048_2cmt_infusion_5grp_unbalanced
+  2-compartment IV infusion
+  group 1 Group 1          dose 50       10 subjects
+  group 2 Group 2          dose 100      10 subjects
+  group 3 Group 3          dose 200      20 subjects
+  group 4 Group 4          dose 400      30 subjects
+  group 5 Group 5          dose 800      40 subjects
+  models/run101 — base model (no covariates), OFV -475.803.
+  gof/ — goodness-of-fit plots (DV vs PRED, DV vs IPRED, CWRES vs TIME, CWRES vs PRED, IWRES vs IPRED; PNG; --plot-format svg or both also writes svg/) of run101 (base); every file name ends with the run and its role, for example gof_dv_pred_run101_base.png.
+Next: nlmx cov -c projects/048_2cmt_infusion_5grp_unbalanced\nlmx.covar
+   1.71s ok    project generated — total elapsed 1.71s

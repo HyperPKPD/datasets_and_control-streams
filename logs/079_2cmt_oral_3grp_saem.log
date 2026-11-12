@@ -1,0 +1,60 @@
+   0.00s stage generating the design
+   0.00s info  2-compartment oral (first-order absorption); 3 group(s): Group 1 (30 × 50), Group 2 (30 × 100), Group 3 (30 × 200); 1 dose(s) every 24 h; 90 subject(s)
+   0.02s ok    control stream parsed: 15 record(s), 18 $INPUT column(s), 7 THETA, 2 ETA, 1 EPS
+   0.02s info  reading dataset `projects/079_2cmt_oral_3grp_saem\data\analysis.csv`
+   0.02s info  data columns as NONMEM reads them ($INPUT by position): 18 kept, 0 renamed, 0 dropped, 0 not in $INPUT
+   0.03s ok    dataset accepted: 1080 rows, 990 observations, 90 dose records, 90 subjects (0 without observations dropped)
+   0.03s stage simulating the dataset from the truth model
+   0.03s ok    control stream parsed: 15 record(s), 18 $INPUT column(s), 7 THETA, 2 ETA, 1 EPS
+   0.03s info  reading dataset `projects/079_2cmt_oral_3grp_saem\data\analysis.csv`
+   0.05s info  data columns as NONMEM reads them ($INPUT by position): 18 kept, 0 renamed, 0 dropped, 0 not in $INPUT
+   0.05s ok    dataset accepted: 1080 rows, 990 observations, 90 dose records, 90 subjects (0 without observations dropped)
+   0.05s ok    dataset: 90 subjects, 990 observations
+   0.05s stage fitting the base model (no covariates) by maximum likelihood
+   0.06s stage SAEM fit of run101 (2 chain(s), burn-in up to 1000 with a stationarity test, 300 accumulation iterations)
+   0.06s info  SAEM: ETA(1) is MU-linked to THETA(1) (log), updated in closed form
+   0.06s info  SAEM: ETA(2) is MU-linked to THETA(2) (log), updated in closed form
+   0.08s info  SAEM burn-in iteration    1: objective -3181.703  acceptance 0.04/0.31/0.55
+   0.95s info  SAEM burn-in iteration   50: objective -3628.342  acceptance 0.03/0.41/0.42
+   1.81s info  SAEM burn-in iteration  100: objective -3579.772  acceptance 0.06/0.36/0.41
+   1.81s ok    SAEM: burn-in stationary after 100 iterations; accumulating for 300
+   2.90s info  SAEM accumulation iteration   50: objective -3614.448  acceptance 0.04/0.41/0.42
+   5.11s info  SAEM accumulation iteration  100: objective -3602.297  acceptance 0.06/0.37/0.40
+   7.27s info  SAEM accumulation iteration  150: objective -3608.306  acceptance 0.06/0.42/0.41
+   9.63s info  SAEM accumulation iteration  200: objective -3613.788  acceptance 0.06/0.38/0.38
+  11.85s info  SAEM accumulation iteration  250: objective -3604.106  acceptance 0.07/0.45/0.43
+  14.00s info  SAEM accumulation iteration  300: objective -3593.656  acceptance 0.07/0.39/0.44
+  14.30s ok    SAEM fit of run101: OFV = -2884.7299 (importance sampling) after 400 iteration(s) (converged), THETA = [3.0703, 43.2472, 5.0454, 80.1140, 1.1191, 0.1518, 0.0182]
+  14.30s stage covariance step (importance-sampling objective at fixed draws)
+  42.86s info  transcript: projects/079_2cmt_oral_3grp_saem\log_4071456880.txt
+  42.86s stage goodness-of-fit plots of run101 (base model)
+  42.86s info  command-line overrides applied: approximation=saem, seed=20261079
+  42.86s stage parsing the control stream
+  42.87s ok    control stream parsed: 15 record(s), 18 $INPUT column(s), 7 THETA, 2 ETA, 1 EPS
+  42.87s info  initial estimates from `projects/079_2cmt_oral_3grp_saem\models\run101.ext`
+  42.87s ok    read 11 final estimate(s) from .ext, OFV = -2884.7300
+  42.87s stage reading the dataset
+  42.87s info  reading dataset `projects/079_2cmt_oral_3grp_saem\models\../data/analysis.csv`
+  42.87s info  data columns as NONMEM reads them ($INPUT by position): 18 kept, 0 renamed, 0 dropped, 0 not in $INPUT
+  42.88s ok    dataset accepted: 1080 rows, 990 observations, 90 dose records, 90 subjects (0 without observations dropped)
+  42.88s ok    model: ADVAN4 TRANS4: two compartments with first-order absorption; 7 THETA, 2 ETA, 1 EPS; 90 subjects, 990 observations
+  42.88s info  estimating 9 parameter(s) by saem (2 fixed); 2 ETA(s) integrated
+  43.14s info  initial OFV -2885.6200 (importance sampling)
+  43.14s stage evaluation at the initial estimates (no estimation)
+  43.14s stage objective by importance sampling (300 draws per subject)
+  43.39s ok    OFV -2885.6200 (importance sampling)
+  43.39s stage individual estimates and predictions
+  43.39s stage writing results
+  43.57s ok    8 publication plot(s) in plots/ (png, 2100×1500 px at 300 dpi)
+  43.62s ok    19 output file(s) written
+  43.62s info  fit complete — OFV -2885.6200 (converged)
+  43.65s ok    5 goodness-of-fit plot(s) of run101 in gof/
+Generated project written to projects/079_2cmt_oral_3grp_saem
+  2-compartment oral (first-order absorption)
+  group 1 Group 1          dose 50       30 subjects
+  group 2 Group 2          dose 100      30 subjects
+  group 3 Group 3          dose 200      30 subjects
+  models/run101 — base model (no covariates), OFV -2884.730.
+  gof/ — goodness-of-fit plots (DV vs PRED, DV vs IPRED, CWRES vs TIME, CWRES vs PRED, IWRES vs IPRED; PNG; --plot-format svg or both also writes svg/) of run101 (base); every file name ends with the run and its role, for example gof_dv_pred_run101_base.png.
+Next: nlmx cov -c projects/079_2cmt_oral_3grp_saem\nlmx.covar
+  43.72s ok    project generated — total elapsed 43.72s
