@@ -1,0 +1,24 @@
+# Forest plot of the generated covariate model run102 (`nlmx forest --print-config`
+# writes the full template). Use it with: nlmx forest -c nlmx.forest
+[inputs]
+control_stream = "models/run102.ctl"
+
+[forest]
+quantiles = [5, 95]        # continuous covariates at their 5th and 95th percentiles
+
+[labels]
+WT = "Body weight (kg)"
+AGE = "Age (years)"
+SEX = "Sex"
+EGFR = "eGFR (mL/min/1.73 m2)"
+CRCL = "CrCL (mL/min)"
+
+[level_labels]
+SEX = { 0 = "Male", 1 = "Female" }
+
+[output]
+directory = "out_forest"
+
+[plots]
+enabled = true
+# truth: CL~WT=0.75, V~WT=1
