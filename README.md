@@ -18,9 +18,9 @@ The repository is organized by individual project directories. Aside from a shar
 │   │   └── groups.csv       # Group definitions and metadata mapping
 │   ├── models/
 │   │   ├── run101.ctl       # Base model control stream (no covariates)
-│   │   ├── run101.lst       # Base model output / results (OFV, parameter estimates)
+│   │   ├── run101.ext       # Base model output / results (OFV, parameter estimates)
 │   │   ├── run102.ctl       # Full/Covariate model control stream with estimated effects
-│   │   └── run102.lst       # Covariate model output
+│   │   └── run102.ext       # Covariate model output
 │   ├── truth.ctl            # Simulation control stream (ground truth model with true parameters)
 │   ├── nlmx.covar           # nlmx configuration for covariate analysis
 │   ├── nlmx.vpc             # nlmx configuration for Visual Predictive Checks (VPC)
@@ -31,7 +31,7 @@ The repository is organized by individual project directories. Aside from a shar
 
 ---
 
-## 🔬 What Each Project Contains
+## What Each Project Contains
 
 Every project folder includes the following standardized components:
 
@@ -54,7 +54,7 @@ Every project folder includes the following standardized components:
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 
@@ -91,7 +91,7 @@ To execute the NONMEM control streams and `nlmx` workflows, ensure you have the 
 
 ---
 
-## 📊 Example Project Summary
+## Example Project Summary
 
 | Model Run | Description | Key Parameters / Covariates | OFV |
 | :--- | :--- | :--- | :--- |
