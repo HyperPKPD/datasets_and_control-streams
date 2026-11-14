@@ -11,7 +11,6 @@ Each directory is an independent, self-contained modelling project with a simula
 | [`projects.md`](projects.md) | the problem statement and the 100 `nlmx generate` commands, from the simplest project to the most complex |
 | [`run.R`](run.R) | runs the 100 commands of `projects.md` one by one from R (`Rscript run.R`), with a log per project and `run_summary.csv` |
 | `run_all.ps1`, `run_all.sh` | the same 100 commands as one script (PowerShell, bash) |
-| [`linkedin/`](linkedin/) | two LinkedIn posts announcing the collection, ten 4:5 cover images (1080 x 1350) and two looping GIFs |
 | `projects/` | the generated projects, one folder each (made by the commands; not stored until you run them) |
 
 ## The collection
