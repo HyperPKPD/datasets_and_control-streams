@@ -1,0 +1,47 @@
+================================================================
+nlmx 4.18.8
+command line : C:\Users\askph\Desktop\PROJECTS\RUST\CovariateAnalysis\nlmx\target\release\nlmx.exe qc-data .\data\analysis.csv --output final_qc-data --plots
+started      : 2026-11-14 12:26:39 -0500
+log file     : final_qc-data\log_3578844571.txt
+================================================================
+[   0.00s] [info ] [-] nlmx 4.18.8
+[   0.00s] [info ] [-] command     : C:\Users\askph\Desktop\PROJECTS\RUST\CovariateAnalysis\nlmx\target\release\nlmx.exe qc-data .\data\analysis.csv --output final_qc-data --plots
+[   0.00s] [info ] [-] config      : (none)
+[   0.00s] [info ] [-] output      : final_qc-data
+[   0.00s] [debug] [-] using 20 worker thread(s)
+[   0.01s] [info ] [-] transcript: final_qc-data\log_3578844571.txt
+[   0.01s] [stage] [reading the dataset] reading the dataset
+[   0.01s] [ok   ] [reading the dataset] 1000 records, 18 columns, 1001 lines
+[   0.01s] [stage] [checking] checking
+[   0.03s] [ok   ] [checking] READY WITH WARNINGS — review the warnings before analysis — 99 checks: 79 PASS, 8 COMMENT, 2 WARN, 0 FAIL, 10 N/A
+[   0.03s] [stage] [writing outputs] writing outputs
+[   0.03s] [debug] [writing outputs] wrote qc_checklist.csv (23088 bytes)
+[   0.03s] [debug] [writing outputs] wrote qc_findings.csv (565 bytes)
+[   0.03s] [debug] [writing outputs] wrote qc_columns.csv (1082 bytes)
+[   0.03s] [debug] [writing outputs] wrote qc_subjects.csv (4589 bytes)
+[   0.03s] [debug] [writing outputs] wrote qc_dosing.csv (109 bytes)
+[   0.03s] [debug] [writing outputs] wrote qc_events.csv (74 bytes)
+[   0.03s] [debug] [writing outputs] wrote qc_sampling.csv (301 bytes)
+[   0.03s] [debug] [writing outputs] wrote qc_covariates_continuous.csv (293 bytes)
+[   0.03s] [debug] [writing outputs] wrote qc_covariates_categorical.csv (131 bytes)
+[   0.03s] [debug] [writing outputs] wrote qc_covariate_correlation.csv (148 bytes)
+[   0.03s] [debug] [writing outputs] wrote qc_nonmem.txt (418 bytes)
+[   0.09s] [debug] [writing outputs] wrote plots/concentration_time.png (814456 bytes)
+[   0.13s] [debug] [writing outputs] wrote plots/concentration_tad.png (832767 bytes)
+[   0.15s] [debug] [writing outputs] wrote plots/sampling_times.png (222699 bytes)
+[   0.16s] [debug] [writing outputs] wrote plots/dv_distribution.png (225587 bytes)
+[   0.18s] [debug] [writing outputs] wrote plots/observations_per_individual.png (207926 bytes)
+[   0.22s] [debug] [writing outputs] wrote plots/swimmer/page_01.png (605690 bytes)
+[   0.26s] [debug] [writing outputs] wrote plots/swimmer/page_02.png (610223 bytes)
+[   0.30s] [debug] [writing outputs] wrote plots/swimmer/page_03.png (468963 bytes)
+[   0.33s] [debug] [writing outputs] wrote plots/covariates_continuous/page_01.png (418296 bytes)
+[   0.36s] [debug] [writing outputs] wrote plots/covariates_categorical/page_01.png (321447 bytes)
+[   0.38s] [debug] [writing outputs] wrote plots/covariate_correlation.png (273264 bytes)
+[   0.40s] [debug] [writing outputs] wrote plots/covariate_missingness.png (220673 bytes)
+[   0.41s] [debug] [writing outputs] wrote plots/findings_by_check.png (174963 bytes)
+[   0.42s] [debug] [writing outputs] wrote report.html (419901 bytes)
+[   0.42s] [debug] [writing outputs] wrote qc_summary.json (47927 bytes)
+[   0.42s] [debug] [writing outputs] wrote qc_summary.txt (16638 bytes)
+[   0.53s] [debug] [writing outputs] wrote checksums.sha256 (2432 bytes)
+[   0.53s] [ok   ] [writing outputs] 28 output file(s) written
+[   0.53s] [ok   ] [writing outputs] qc-data complete — total elapsed 0.53s

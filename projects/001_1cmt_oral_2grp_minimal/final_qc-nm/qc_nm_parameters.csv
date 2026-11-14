@@ -1,0 +1,9 @@
+PROBLEM,PARAMETER,LOWER,INITIAL,UPPER,FIXED,BLOCK,LINE,LABEL
+1,THETA(1),0,3.2,,false,,45,THETA(1) TVCL: typical clearance (L/h)
+1,THETA(2),0,42,,false,,46,THETA(2) TVV: typical central volume of distribution (L)
+1,THETA(3),0,1.1,,false,,47,THETA(3) TVKA: typical first-order absorption rate constant (1/h)
+1,THETA(4),0,0.15,1,false,,48,THETA(4) proportional residual error (SD as a fraction of IPRED)
+1,THETA(5),0,0.02,,false,,49,"THETA(5) additive residual error (SD, mg/L)"
+1,OMEGA(1,1),,0.086178,,false,,51,
+1,OMEGA(2,2),,0.060625,,false,,52,
+1,SIGMA(1,1),,1,,true,,53,

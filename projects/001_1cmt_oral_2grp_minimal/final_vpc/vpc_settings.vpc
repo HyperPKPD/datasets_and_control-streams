@@ -1,0 +1,64 @@
+# Settings of this VPC run, as a configuration file: rerun with
+#   nlmx vpc -c vpc_settings.vpc --output <new folder>
+
+[inputs]
+control_stream = "C:\\Users\\askph\\Desktop\\PROJECTS\\RUST\\CovariateAnalysis\\VALIDATION_PACKAGE\\BENCHMARKS\\projects\\001_1cmt_oral_2grp_minimal\\truth.ctl"
+data = "C:\\Users\\askph\\Desktop\\PROJECTS\\RUST\\CovariateAnalysis\\VALIDATION_PACKAGE\\BENCHMARKS\\projects\\001_1cmt_oral_2grp_minimal\\data\\analysis.csv"
+
+[vpc]
+type = "pcvpc"
+samples = 1000
+seed = 20240611
+idv = "TIME"
+stratify_on = []
+stratify_groups = 2
+max_categories = 10
+pi = [5, 50, 95]
+ci = 95
+x_scale = "linear"
+y_scale = "linear"
+show_points = true
+show_outside = true
+legend_position = "bottom"
+caption = true
+
+[prediction_correction]
+log_scale = false
+lower_bound = 0
+variability_correction = false
+
+[binning]
+method = "auto"
+max_bins = 20
+min_obs = 10
+
+[npc]
+pi = [0, 20, 40, 50, 60, 80, 90, 95]
+
+[uncertainty]
+enabled = false
+max_attempts = 100
+
+[output]
+html = true
+svg = true
+write_simulations = false
+
+[plots]
+enabled = true
+width = 7
+height = 5
+units = "in"
+dpi = 300
+base_size = 11
+format = "png"
+title = true
+legend = true
+
+[plots.colors]
+median = "#EB6834"
+outer = "#2A78D6"
+observed = "#000000"
+points = "#9E9E9E"
+outside = "#D62728"
+reference = "#4D4D4D"

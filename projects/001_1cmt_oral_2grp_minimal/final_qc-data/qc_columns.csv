@@ -1,0 +1,19 @@
+COLUMN,ROLE,TYPE,RECORDS,NUMERIC,MISSING,TEXT,DISTINCT,MIN,MEDIAN,MEAN,MAX
+ID,ID,numeric,1000,1000,0,0,100,1,50.5,50.5,100
+TIME,TIME,numeric,1000,1000,0,0,10,0,3.5,6.05,24
+AMT,AMT,numeric,1000,1000,0,0,3,0,0,7.5,100
+RATE,RATE,numeric,1000,1000,0,0,1,0,0,0,0
+ADDL,ADDL,numeric,1000,1000,0,0,1,0,0,0,0
+II,II,numeric,1000,1000,0,0,1,0,0,0,0
+EVID,EVID,numeric,1000,1000,0,0,2,0,0,0.1,1
+MDV,MDV,numeric,1000,1000,0,0,2,0,0,0.1,1
+DV,DV,numeric,1000,1000,0,0,900,0,0.863988,1.013201,4.292905
+CMT,CMT,numeric,1000,1000,0,0,2,1,2,1.9,2
+GROUP,covariate (categorical),numeric,1000,1000,0,0,2,1,1.5,1.5,2
+DOSE,covariate (categorical),numeric,1000,1000,0,0,2,50,75,75,100
+WT,covariate (continuous),numeric,1000,1000,0,0,99,34.83,71.325,71.3266,108.56
+AGE,covariate (continuous),numeric,1000,1000,0,0,44,18,45,45.24,85
+SEX,covariate (categorical),numeric,1000,1000,0,0,2,0,0,0.45,1
+EGFR,covariate (continuous),numeric,1000,1000,0,0,94,53.2,89.75,96.657,183.3
+CRCL,covariate (continuous),numeric,1000,1000,0,0,92,48.4,89.55,96.358,179.9
+BLQ,covariate (categorical),numeric,1000,1000,0,0,1,0,0,0,0

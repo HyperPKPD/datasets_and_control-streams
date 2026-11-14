@@ -1,0 +1,9 @@
+; nlmx QC — suggested NM-TRAN statements for analysis.csv
+; Adapt them to the model: DROP the columns the model does not use.
+
+$INPUT ID TIME AMT RATE ADDL II EVID MDV DV CMT GROUP DOSE WT AGE SEX
+       EGFR CRCL BLQ
+$DATA  analysis.csv IGNORE=@
+
+; 18 data items kept (50 allowed by NM-TRAN), 1000 records, 100 individuals
+; IGNORE=@ skips the header and any record whose first non-blank character is a letter or @

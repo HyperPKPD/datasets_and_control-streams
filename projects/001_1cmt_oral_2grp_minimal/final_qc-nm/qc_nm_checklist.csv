@@ -1,0 +1,82 @@
+ID,CATEGORY,QUESTION,STATUS,STATUS_AFTER_FIX,ISSUES,CHECKED,FIX,COMMENT,ACTION
+FIL01,file,"Is the control stream a readable, non-empty text file?",PASS,,0,67,,67 lines of text,Save the control stream as plain text (ASCII).
+FIL02,file,Is the file free of a byte-order mark and of non-ASCII characters?,PASS,,0,67,ascii,plain ASCII,"NM-TRAN reads ASCII only; replace typographic quotes, dashes, µ and non-breaking spaces."
+FIL03,file,Are the line endings consistent (all CRLF or all LF)?,PASS,,0,67,line_endings,LF throughout,Save the file with one kind of line ending.
+FIL04,file,Are the lines within the line-length limit?,PASS,,0,67,wrap_lists,every line within 160 characters,"Split long lines: lists ($INPUT, $TABLE) over several lines, code with `&` continuations."
+FIL05,file,Is the file free of tab characters?,PASS,,0,67,tabs,no tabs,Replace tabs by spaces; some NM-TRAN versions and editors treat them differently.
+FIL06,file,Is the file free of trailing white space?,PASS,,0,67,trailing_space,none,Remove the spaces at the ends of the lines.
+FIL07,file,How many problems ($PROBLEM records) does the file hold?,COMMENT,,0,1,,one problem,Each problem is checked on its own.
+REC01,records,Does the control stream start with $PROBLEM (after $SIZES and comments)?,PASS,,0,14,problem,the file starts with $PROBLEM,Begin the file with $PROBLEM and a short description.
+REC02,records,Is every record name one that NM-TRAN knows?,PASS,,0,14,,14 records known,Correct the misspelt record name.
+REC03,records,Are the record names written in full (not abbreviated)?,PASS,,0,14,record_names,every record name written in full,"Abbreviations of three or more letters work, but full names are clearer."
+REC04,records,Is each single-use record given at most once per problem?,PASS,,0,14,,each single-use record at most once,"Merge the duplicated $INPUT, $DATA, $SUBROUTINES, $PK, $ERROR, $PRED, $DES or $MODEL records."
+REC05,records,"Are the records the model needs present ($INPUT, $DATA, a model, $THETA)?",PASS,,0,14,,the needed records are present,Add the missing record.
+REC06,records,"Is the model either $PRED or PREDPP ($SUBROUTINES with $PK and $ERROR), not both?",PASS,,0,14,,one model definition,"Use $PRED alone, or $SUBROUTINES with $PK and $ERROR."
+REC07,records,"Are the records in a usual order ($INPUT and $DATA before the code, parameters before $ESTIMATION, $ESTIMATION before $COVARIANCE and $TABLE)?",PASS,,0,14,,usual order,Reorder the records; NM-TRAN applies $ESTIMATION options in order and some tools expect this layout.
+REC08,records,Does every record that needs content have it?,PASS,,0,14,,no empty records,Fill in the empty record or remove it.
+REC09,records,Is $SIZES (when present) before $PROBLEM?,N/A,,0,0,sizes_first,no $SIZES,Move $SIZES to the top of the file.
+REC10,records,"Do the files named by $INCLUDE, $MSFI and $ETAS/$PHIS FILE= exist?",N/A,,0,0,,"no $INCLUDE, $MSFI or FILE= of $ETAS/$PHIS",Correct the path or create the file.
+INP01,input,"Are the $INPUT labels valid names (a letter first, letters, digits and _, within the length limit)?",PASS,,0,18,,valid labels,Rename the label.
+INP02,input,Are the $INPUT labels unique?,PASS,,0,18,,unique labels,Rename or DROP the duplicate.
+INP03,input,Are the data items NONMEM needs in $INPUT (ID and DV; TIME and AMT for PREDPP)?,PASS,,0,18,,the needed data items are present,Add the missing data item.
+INP04,input,"Are reserved names kept out of the $INPUT labels (THETA, ETA, EPS, PRED, RES, WRES …)?",PASS,,0,18,,no reserved names,Rename the column.
+INP05,input,Are DROPped data items left out of the code (they stay usable in IGNORE/ACCEPT)?,PASS,,0,18,,dropped items are not used in the code,Keep the item (remove =DROP) or stop using it in the code.
+INP06,input,"Are EVID and MDV given, or can NONMEM infer them?",PASS,,0,18,,EVID or MDV given,"Add EVID (and MDV) to the dataset and $INPUT for clarity, especially with several dose and observation types."
+INP07,input,Do the $INPUT labels match the dataset header (number and names)?,PASS,,0,18,input_from_header,$INPUT matches the header,Check that every label sits over the right column; renaming in $INPUT is allowed but easy to get wrong.
+INP08,input,Are the dataset columns that hold text DROPped in $INPUT?,PASS,,0,18,drop_text,every kept column is numeric,Add =DROP to the label of each text column (or recode it as numbers).
+DAT01,data,Does $DATA name a dataset that exists (relative to the control stream)?,PASS,,0,1,,the dataset exists,Correct the path in $DATA.
+DAT02,data,Will the IGNORE option skip the header line of the dataset?,PASS,,0,1,ignore,the header line is skipped,"Add IGNORE=@ (skips lines that start with a letter or @), or IGNORE=# with a # header."
+DAT03,data,"Do the IGNORE/ACCEPT conditions use $INPUT labels and valid operators, without mixing IGNORE=(list) and ACCEPT?",PASS,,0,1,,valid IGNORE/ACCEPT,Correct the condition.
+DAT04,data,Is the number of IGNORE/ACCEPT conditions within NONMEM's limit?,PASS,,0,1,,within the limit,"Combine conditions, or filter the dataset beforehand."
+DAT05,data,Do the dataset's CMT values exist in the model?,PASS,,0,1,,every CMT value exists in the model,Correct CMT in the dataset or the compartments of the model.
+DAT06,data,Does the dataset have at least as many columns as $INPUT has labels?,PASS,,0,1,,enough columns for $INPUT,Add the missing columns or remove the extra labels.
+DAT07,data,How many records and individuals will NONMEM read after IGNORE/ACCEPT?,COMMENT,,0,1,,"1000 records read of 1000 data lines, 100 individuals",Run `nlmx qc-data` on the dataset for the full data checks.
+DAT08,data,"Are the dataset lines that are not data (comments, notes, a second header) skipped by the IGNORE option?",PASS,,0,1,,every line read is data,"Start such lines with the IGNORE character (or a letter with IGNORE=@), or remove them."
+DAT09,data,Do .EQ./.NE. conditions on numbers match the dataset as intended (they compare text: 0 is not 0.0)?,PASS,,0,1,ignore_numeric,the conditions match the values as written,"Use .EQN./.NEN. for numeric comparisons, or write the value exactly as in the file."
+DAT10,data,"Does every IGNORE/ACCEPT condition select some records, and do observations remain?",PASS,,0,1,,every condition selects records; observations remain,Check the label and the value of the condition; a condition that matches nothing is probably mistyped.
+SUB01,subroutines,Is the ADVAN known and the TRANS valid for it?,PASS,,0,1,,valid ADVAN and TRANS,Choose a TRANS supported by the ADVAN.
+SUB02,subroutines,"Is TOL given for the general ADVANs (6, 8, 9, 13, 14, 15)?",PASS,,0,1,tol,TOL given where needed,Add TOL=n to $SUBROUTINES.
+SUB03,subroutines,"Does a general ADVAN have $MODEL, and an ODE ADVAN $DES?",PASS,,0,1,,$MODEL and $DES as the ADVAN needs,"Add $MODEL with the compartments, and $DES with the differential equations."
+SUB04,subroutines,Are the basic PK parameters required by ADVAN/TRANS assigned in $PK?,PASS,,0,1,,the required PK parameters are assigned,Assign them in $PK (e.g. CL and V for ADVAN1 TRANS2).
+SUB05,subroutines,Is the scale S of the observation compartment set in $PK?,PASS,,0,1,,the observation compartment is scaled,"Set S1 (or S2 …) so that F is a concentration, e.g. S2 = V2 or S2 = V2/1000."
+SUB06,subroutines,"Do the compartment numbers of Fn, ALAGn, Rn, Dn, Sn and A(n) exist in the model?",PASS,,0,1,,compartment numbers within the model,Correct the compartment number.
+SUB07,subroutines,"Does $DES define DADT(n) for every compartment, and for no other?",N/A,,0,0,,no $DES,Write one DADT(n) for each compartment of $MODEL.
+COD01,code,Does the abbreviated code parse (syntax)?,PASS,,0,12,,the code parses,Correct the statement shown.
+COD02,code,Are IF/THEN/ELSE/ENDIF and DO WHILE/ENDDO balanced?,PASS,,0,12,,IF/ENDIF and DO/ENDDO balanced,Close every block IF with ENDIF and every DO WHILE with ENDDO.
+COD03,code,"Are the THETA(n) indices within $THETA, and is every THETA used?",PASS,,0,12,,"THETA indices match $THETA, every THETA used",Use THETA(1) … THETA(n) for the n values of $THETA; remove unused ones or FIX them.
+COD04,code,"Are the ETA(n) indices within $OMEGA, and is every ETA used?",PASS,,0,12,,"ETA indices match $OMEGA, every ETA used",Use ETA(1) … ETA(n) for the n random effects of $OMEGA.
+COD05,code,"Are the EPS(n)/ERR(n) indices within $SIGMA, and is every EPS used?",PASS,,0,12,,"EPS indices match $SIGMA, every EPS used",Use EPS(1) … EPS(n) for the n random effects of $SIGMA.
+COD06,code,Is every variable defined before it is used (or a data item or NONMEM name)?,PASS,,0,12,,every variable is defined before use,"Define the variable earlier, add the column to $INPUT, or correct the spelling."
+COD07,code,Is Y defined in $ERROR (PREDPP) or $PRED?,PASS,,0,12,,Y is defined,Define Y in $ERROR (PREDPP) or $PRED.
+COD08,code,"Are LOG, SQRT and divisions protected against zero or negative values?",PASS,,0,12,,protected,"Guard them, e.g. IF (IPRED.LE.0) IPRED = 1E-10, or W = SQRT(…) with a floor."
+COD09,code,"Are the variable names valid (within the length limit, not reserved words)?",PASS,,0,12,,valid names,Rename the variable.
+COD10,code,"Does each block use only what NONMEM allows there (no EPS in $PK, DADT only in $DES, A(n) not in $PK)?",PASS,,0,12,,each block uses what it may,Move the statement to the right record.
+COD11,code,Are MU-referencing statements present for the EM and Bayesian methods?,N/A,,0,0,,no EM or Bayesian method,"Write MU_n = LOG(TVPAR) and PAR = EXP(MU_n + ETA(n)) for faster, more stable EM estimation."
+COD12,code,"Is every variable defined in $PK, $ERROR, $PRED or $DES used later or written to a $TABLE?",PASS,,0,12,table_unused,every variable is used or tabulated,"Use the variable, add it to a $TABLE (e.g. IPRED, IWRES, individual parameters), or remove it."
+PAR01,parameters,"Do $THETA, $OMEGA and $SIGMA parse?",PASS,,0,8,,the parameter records parse,Correct the record.
+PAR02,parameters,"Are the THETA bounds ordered, with the initial value inside them?",PASS,,0,8,bounds,every initial value strictly inside its bounds,"Write (lower, initial, upper) with lower < initial < upper."
+PAR03,parameters,Are the THETA initial values away from their bounds?,PASS,,0,8,bounds,initial values away from the bounds,Move the initial value inside; an estimate starting on a bound may not move.
+PAR04,parameters,Are the estimated THETAs started away from zero?,PASS,,0,8,bounds,no estimated THETA starts at 0,Start at a non-zero value; a zero initial value cannot be scaled.
+PAR05,parameters,"Are the diagonal OMEGA/SIGMA values positive, and zeros FIXed?",PASS,,0,8,zero_fix,positive variances (zeros FIXed),"Give a positive variance, or FIX a zero."
+PAR06,parameters,Are the OMEGA/SIGMA blocks positive definite?,PASS,,0,8,block_pd,positive definite blocks,Reduce the covariances (|correlation| < 1).
+PAR07,parameters,"Does each BLOCK(n) have n(n+1)/2 values, and does SAME follow a block of the same size?",PASS,,0,8,,block sizes consistent,Correct the number of values.
+PAR08,parameters,Are the OMEGA initial values plausible (CV between 1 % and 300 %)?,PASS,,0,8,,plausible OMEGA values,"Check the scale of the variance (variance, not CV or SD, unless SD is written)."
+PAR09,parameters,Are FIXed THETAs written without bounds that would be ignored?,PASS,,0,8,,no ignored bounds,Drop the bounds of a FIXed THETA.
+EST01,estimation,Is there an $ESTIMATION (or $SIMULATION) record?,PASS,,0,1,,$ESTIMATION present,Add $ESTIMATION METHOD=1 INTERACTION (or the method you need).
+EST02,estimation,Are the methods and options of $ESTIMATION valid together?,PASS,,0,1,,valid methods and options,Correct the option (INTERACTION and LAPLACIAN need METHOD=1).
+EST03,estimation,Is INTERACTION set when the residual error depends on the prediction?,PASS,,0,1,interaction,INTERACTION where the error model needs it,Add INTERACTION to $ESTIMATION METHOD=1.
+EST04,estimation,Is MAXEVAL given for the classical methods?,PASS,,0,1,maxeval,MAXEVAL given,Add MAXEVAL=9999 so the search does not stop early.
+EST05,estimation,"Do likelihood models (F_FLAG, LIKELIHOOD, -2LL, M3) use LAPLACIAN?",PASS,,0,1,,LAPLACIAN where needed,Use METHOD=1 LAPLACIAN (and LIKELIHOOD/-2LL where needed).
+EST06,estimation,Is the sequence of methods sensible (an EM method followed by IMP or an evaluation)?,PASS,,0,1,,sensible sequence,End an SAEM or BAYES chain with IMP EONLY=1 for an objective function value.
+EST07,estimation,Is a $COVARIANCE step requested?,PASS,,0,1,covariance,a covariance step is requested,Add $COVARIANCE (e.g. PRINT=E UNCONDITIONAL) for standard errors.
+EST08,estimation,Does FO (METHOD=0) have POSTHOC when tables or code need individual estimates?,N/A,,0,0,posthoc,no METHOD=0,Add POSTHOC to $ESTIMATION METHOD=0.
+EST09,estimation,Are the $ESTIMATION and $COVARIANCE options known?,PASS,,0,1,,every option is known,Check the spelling of the option.
+TAB01,tables,Are the $TABLE file names unique?,PASS,,0,3,table_files,unique file names,Give each $TABLE its own FILE=.
+TAB02,tables,"Is every $TABLE item a data item, a variable of the code or a NONMEM output?",PASS,,0,3,table_items,every item is defined,Correct or remove the item.
+TAB03,tables,Do the $TABLE records use ONEHEADER and NOPRINT?,PASS,,0,3,table_options,ONEHEADER NOPRINT throughout,Add ONEHEADER NOPRINT for readable table files.
+TAB04,tables,"Is there at least one $TABLE with the diagnostics (ID, TIME, DV, PRED, IPRED, CWRES)?",PASS,,0,3,,the diagnostics are tabulated,Add an sdtab-style $TABLE.
+TAB05,tables,Is each item listed only once per $TABLE?,PASS,,0,3,table_items,no repeated items,Remove the repeated item.
+TAB06,tables,Does every $TABLE with NOPRINT have FILE= (otherwise the table is written nowhere useful)?,PASS,,0,3,,every NOPRINT table has a file,Add FILE=name (e.g. sdtab1) to the $TABLE.
+DOC01,documentation,Does $PROBLEM carry a description?,PASS,,0,1,,described,Describe the model on the $PROBLEM line.
+DOC02,documentation,"Are the THETA, OMEGA and SIGMA values labelled with comments?",PASS,,0,8,,every value is labelled,"Label each value, e.g. (0, 5) ; CL (L/h)."
+DOC03,documentation,"Does the file have a header comment (description, author, date)?",PASS,,0,1,,10 header comment line(s),"Add a ;; header with the run, purpose, author and date."

@@ -1,0 +1,28 @@
+================================================================
+nlmx 4.18.8
+command line : C:\Users\askph\Desktop\PROJECTS\RUST\CovariateAnalysis\nlmx\target\release\nlmx.exe qc-nm .\truth.ctl --output final_qc-nm --plots
+started      : 2026-11-14 12:26:18 -0500
+log file     : final_qc-nm\log_9319979179.txt
+================================================================
+[   0.01s] [info ] [-] nlmx 4.18.8
+[   0.01s] [info ] [-] command     : C:\Users\askph\Desktop\PROJECTS\RUST\CovariateAnalysis\nlmx\target\release\nlmx.exe qc-nm .\truth.ctl --output final_qc-nm --plots
+[   0.01s] [info ] [-] config      : (none)
+[   0.01s] [info ] [-] output      : final_qc-nm
+[   0.01s] [debug] [-] using 20 worker thread(s)
+[   0.02s] [info ] [-] transcript: final_qc-nm\log_9319979179.txt
+[   0.02s] [stage] [reading the control stream] reading the control stream
+[   0.04s] [ok   ] [reading the control stream] 67 lines, 14 records, 1 problem(s); READY
+[   0.04s] [stage] [correcting] correcting
+[   0.06s] [ok   ] [correcting] nothing to correct
+[   0.06s] [stage] [writing outputs] writing outputs
+[   0.06s] [debug] [writing outputs] wrote qc_nm_checklist.csv (14258 bytes)
+[   0.06s] [debug] [writing outputs] wrote qc_nm_findings.csv (62 bytes)
+[   0.06s] [debug] [writing outputs] wrote qc_nm_changes.csv (42 bytes)
+[   0.06s] [debug] [writing outputs] wrote qc_nm_parameters.csv (573 bytes)
+[   0.06s] [debug] [writing outputs] wrote qc_nm_variables.csv (453 bytes)
+[   0.07s] [debug] [writing outputs] wrote report.html (30967 bytes)
+[   0.07s] [debug] [writing outputs] wrote qc_nm_summary.json (31129 bytes)
+[   0.07s] [debug] [writing outputs] wrote qc_nm_summary.txt (7516 bytes)
+[   0.13s] [debug] [writing outputs] wrote checksums.sha256 (675 bytes)
+[   0.13s] [ok   ] [writing outputs] 9 output file(s) written
+[   0.13s] [ok   ] [writing outputs] qc-nm complete — total elapsed 0.13s

@@ -1,0 +1,16 @@
+PROBLEM,NAME,KIND,BLOCKS,DEFINED_ON_LINE,USES,FIRST_USE_LINE
+1,CL,variable,PK,27,0,
+1,DV,data item,ERROR,,1,38
+1,EGFR,data item,PK,,1,26
+1,F,undefined,ERROR,,1,35
+1,IPRED,variable,ERROR,35,3,36
+1,IRES,variable,ERROR,38,1,39
+1,IWRES,variable,ERROR,39,0,
+1,KA,variable,PK,30,0,
+1,MU_1,variable,PK,26,1,27
+1,MU_2,variable,PK,28,1,29
+1,S2,variable,PK,31,0,
+1,V,variable,PK,29,1,31
+1,W,variable,ERROR,36,3,37
+1,WT,data item,PK,,2,26
+1,Y,variable,ERROR,40,0,

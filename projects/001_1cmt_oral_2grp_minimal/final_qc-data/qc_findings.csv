@@ -1,0 +1,6 @@
+CHECK,CATEGORY,LEVEL,LINE,ID,COLUMN,VALUE,MESSAGE
+OBS06,observations,warning,381,38,DV,0.0011,DV = 0.0011 is 196.7x below the typical value per unit dose at about 24 h after the dose (24–24)
+OBS06,observations,warning,961,96,DV,0.0127,DV = 0.0127 is 32.663x below the typical value per unit dose at about 24 h after the dose (24–24)
+COV07,covariates,comment,2,1,BLQ,0,BLQ has the single value 0
+COV08,covariates,warning,2,1,EGFR,,EGFR and CRCL: r = 0.98 (100 individuals)
+COV08,covariates,warning,2,1,GROUP,,GROUP and DOSE: Cramér's V = 1.00 (100 individuals)

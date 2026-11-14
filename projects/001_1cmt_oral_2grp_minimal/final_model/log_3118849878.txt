@@ -1,0 +1,61 @@
+================================================================
+nlmx 4.18.8
+command line : C:\Users\askph\Desktop\PROJECTS\RUST\CovariateAnalysis\nlmx\target\release\nlmx.exe fit .\truth.ctl --output final_model --plots
+started      : 2026-11-14 12:23:58 -0500
+log file     : final_model\log_3118849878.txt
+================================================================
+[   0.00s] [info ] [-] nlmx 4.18.8
+[   0.00s] [info ] [-] command     : C:\Users\askph\Desktop\PROJECTS\RUST\CovariateAnalysis\nlmx\target\release\nlmx.exe fit .\truth.ctl --output final_model --plots
+[   0.00s] [info ] [-] config      : (none)
+[   0.00s] [info ] [-] output      : final_model
+[   0.00s] [debug] [-] using 20 worker thread(s)
+[   0.00s] [info ] [-] transcript: final_model\log_3118849878.txt
+[   0.00s] [stage] [parsing the control stream] parsing the control stream
+[   0.01s] [debug] [parsing the control stream] parsing control stream `.\truth.ctl`
+[   0.01s] [ok   ] [parsing the control stream] control stream parsed: 14 record(s), 18 $INPUT column(s), 5 THETA, 2 ETA, 1 EPS
+[   0.01s] [stage] [reading the dataset] reading the dataset
+[   0.01s] [info ] [reading the dataset] reading dataset `.\data/analysis.csv`
+[   0.01s] [info ] [reading the dataset] data columns as NONMEM reads them ($INPUT by position): 18 kept, 0 renamed, 0 dropped, 0 not in $INPUT
+[   0.01s] [debug] [reading the dataset]   delimiter comma; header present; columns: ID,TIME,AMT,RATE,ADDL,II,EVID,MDV,DV,CMT,GROUP,DOSE,WT,AGE,SEX,EGFR,CRCL,BLQ
+[   0.01s] [ok   ] [reading the dataset] dataset accepted: 1000 rows, 900 observations, 100 dose records, 100 subjects (0 without observations dropped)
+[   0.01s] [ok   ] [reading the dataset] model: ADVAN2 TRANS2: one compartment with first-order absorption; 5 THETA, 2 ETA, 1 EPS; 100 subjects, 900 observations
+[   0.01s] [info ] [reading the dataset] estimating 7 parameter(s) by foce_i (2 fixed); 2 ETA(s) integrated
+[   0.02s] [info ] [reading the dataset] initial OFV -2120.6387
+[   0.02s] [stage] [estimation (foce_i)] estimation (foce_i)
+[   0.07s] [debug] [estimation (foce_i)] estimation: iteration 1 OFV -2121.4476 (decrease 8.09e-1)
+[   0.10s] [debug] [estimation (foce_i)] estimation: iteration 2 OFV -2121.4835 (decrease 3.59e-2)
+[   0.13s] [debug] [estimation (foce_i)] estimation: iteration 3 OFV -2121.4845 (decrease 9.64e-4)
+[   0.16s] [debug] [estimation (foce_i)] estimation: iteration 4 OFV -2121.4846 (decrease 1.17e-4)
+[   0.19s] [debug] [estimation (foce_i)] estimation: iteration 5 OFV -2121.4846 (decrease 3.57e-6)
+[   0.22s] [debug] [estimation (foce_i)] estimation: iteration 6 OFV -2121.4846 (decrease 1.05e-7)
+[   0.24s] [debug] [estimation (foce_i)] estimation: iteration 7 OFV -2121.4846 (decrease 6.85e-8)
+[   0.24s] [ok   ] [estimation (foce_i)] OFV -2121.4846 after 8 iteration(s), 120 function evaluations — gradient below 1.0e-3
+[   0.24s] [stage] [covariance step (R^-1 S R^-1 (sandwich))] covariance step (R^-1 S R^-1 (sandwich))
+[   0.36s] [ok   ] [covariance step (R^-1 S R^-1 (sandwich))] covariance step complete; condition number of the correlation matrix 3.433e0
+[   0.36s] [stage] [individual estimates and predictions] individual estimates and predictions
+[   0.36s] [stage] [writing results] writing results
+[   0.36s] [debug] [writing results] wrote truth.ext (1917 bytes)
+[   0.36s] [debug] [writing results] wrote truth.cov (973 bytes)
+[   0.36s] [debug] [writing results] wrote truth.cor (973 bytes)
+[   0.36s] [debug] [writing results] wrote truth.coi (973 bytes)
+[   0.36s] [debug] [writing results] wrote truth.phi (12237 bytes)
+[   0.36s] [debug] [writing results] wrote truth.ctl (4126 bytes)
+[   0.37s] [debug] [writing results] wrote parameters.csv (1410 bytes)
+[   0.37s] [debug] [writing results] wrote fit_command.txt (259 bytes)
+[   0.37s] [debug] [writing results] wrote predictions.csv (180335 bytes)
+[   0.37s] [debug] [writing results] wrote fit_summary.txt (3111 bytes)
+[   0.37s] [debug] [writing results] wrote data_columns.csv (328 bytes)
+[   0.37s] [debug] [writing results] wrote fit_summary.json (4996 bytes)
+[   0.49s] [debug] [writing results] wrote plots/gof_dv_pred.png (385935 bytes)
+[   0.49s] [debug] [writing results] wrote plots/gof_dv_ipred.png (335827 bytes)
+[   0.49s] [debug] [writing results] wrote plots/gof_cwres_time.png (323515 bytes)
+[   0.49s] [debug] [writing results] wrote plots/gof_cwres_pred.png (428862 bytes)
+[   0.49s] [debug] [writing results] wrote plots/gof_iwres_ipred.png (414346 bytes)
+[   0.49s] [debug] [writing results] wrote plots/eta_dist_ETA1.png (289693 bytes)
+[   0.49s] [debug] [writing results] wrote plots/eta_dist_ETA2.png (292415 bytes)
+[   0.49s] [debug] [writing results] wrote plots/eta_pairs.png (261438 bytes)
+[   0.49s] [ok   ] [writing results] 8 publication plot(s) in plots/ (png, 2100×1500 px at 300 dpi)
+[   0.50s] [debug] [writing results] wrote report.html (549313 bytes)
+[   0.52s] [debug] [writing results] wrote checksums.sha256 (1744 bytes)
+[   0.52s] [ok   ] [writing results] 22 output file(s) written
+[   0.52s] [ok   ] [writing results] fit complete — OFV -2121.4846 (converged) — total elapsed 0.52s

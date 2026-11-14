@@ -1,0 +1,54 @@
+================================================================
+nlmx 4.18.8
+command line : C:\Users\askph\Desktop\PROJECTS\RUST\CovariateAnalysis\nlmx\target\release\nlmx.exe vpc .\truth.ctl --output final_vpc --plots
+started      : 2026-11-14 12:25:03 -0500
+log file     : final_vpc\log_7234752764.txt
+================================================================
+[   0.00s] [info ] [-] nlmx 4.18.8
+[   0.00s] [info ] [-] command     : C:\Users\askph\Desktop\PROJECTS\RUST\CovariateAnalysis\nlmx\target\release\nlmx.exe vpc .\truth.ctl --output final_vpc --plots
+[   0.00s] [info ] [-] config      : (none)
+[   0.00s] [info ] [-] output      : final_vpc
+[   0.00s] [debug] [-] using 20 worker thread(s)
+[   0.00s] [info ] [-] transcript: final_vpc\log_7234752764.txt
+[   0.01s] [info ] [-] pcVPC with 1000 replicates (seed 20240611)
+[   0.01s] [stage] [parsing the control stream] parsing the control stream
+[   0.01s] [debug] [parsing the control stream] parsing control stream `.\truth.ctl`
+[   0.01s] [ok   ] [parsing the control stream] control stream parsed: 14 record(s), 18 $INPUT column(s), 5 THETA, 2 ETA, 1 EPS
+[   0.01s] [warn ] [parsing the control stream] no .ext was found beside `.\truth.ctl`: the control stream's initial estimates are simulated (pass --ext for the final estimates)
+[   0.01s] [stage] [reading the dataset] reading the dataset
+[   0.01s] [info ] [reading the dataset] reading dataset `.\data/analysis.csv`
+[   0.01s] [info ] [reading the dataset] data columns as NONMEM reads them ($INPUT by position): 18 kept, 0 renamed, 0 dropped, 0 not in $INPUT
+[   0.01s] [debug] [reading the dataset]   delimiter comma; header present; columns: ID,TIME,AMT,RATE,ADDL,II,EVID,MDV,DV,CMT,GROUP,DOSE,WT,AGE,SEX,EGFR,CRCL,BLQ
+[   0.01s] [ok   ] [reading the dataset] dataset accepted: 1000 rows, 900 observations, 100 dose records, 100 subjects (0 without observations dropped)
+[   0.01s] [ok   ] [reading the dataset] model: ADVAN2 TRANS2: one compartment with first-order absorption; 5 THETA, 2 ETA, 1 EPS; 100 subjects, 900 observations
+[   0.02s] [stage] [population predictions and binning] population predictions and binning
+[   0.02s] [ok   ] [population predictions and binning] 900 observations in 1 stratum/strata, 9 bins
+[   0.02s] [stage] [simulating] simulating
+[   0.04s] [info ] [simulating] progress 100/1000 (10%) — replicates simulated
+[   0.06s] [info ] [simulating] progress 200/1000 (20%) — replicates simulated
+[   0.08s] [info ] [simulating] progress 300/1000 (30%) — replicates simulated
+[   0.13s] [info ] [simulating] progress 400/1000 (40%) — replicates simulated
+[   0.16s] [info ] [simulating] progress 500/1000 (50%) — replicates simulated
+[   0.16s] [info ] [simulating] progress 600/1000 (60%) — replicates simulated
+[   0.16s] [info ] [simulating] progress 700/1000 (70%) — replicates simulated
+[   0.17s] [info ] [simulating] progress 800/1000 (80%) — replicates simulated
+[   0.18s] [info ] [simulating] progress 900/1000 (90%) — replicates simulated
+[   0.18s] [info ] [simulating] progress 1000/1000 (100%) — replicates simulated
+[   0.18s] [ok   ] [simulating] 1000 replicates × 900 observations simulated
+[   0.18s] [stage] [percentiles and NPC] percentiles and NPC
+[   0.24s] [stage] [writing outputs] writing outputs
+[   0.24s] [debug] [writing outputs] wrote vpc_bins.csv (2830 bytes)
+[   0.25s] [debug] [writing outputs] wrote vpc_observations.csv (87265 bytes)
+[   0.25s] [debug] [writing outputs] wrote npc_results.csv (1329 bytes)
+[   0.25s] [debug] [writing outputs] wrote vpc_settings.vpc (1274 bytes)
+[   0.25s] [debug] [writing outputs] wrote vpc_summary.txt (3324 bytes)
+[   0.25s] [debug] [writing outputs] wrote vpc_summary.json (12487 bytes)
+[   0.26s] [debug] [writing outputs] wrote svg/vpc.svg (58595 bytes)
+[   0.26s] [debug] [writing outputs] wrote svg/npc_coverage.svg (9265 bytes)
+[   0.29s] [debug] [writing outputs] wrote plots/vpc.png (436848 bytes)
+[   0.29s] [debug] [writing outputs] wrote plots/npc_coverage.png (436535 bytes)
+[   0.30s] [ok   ] [writing outputs] 2 publication plot(s) in plots/ (png 7×5 in, 2100×1500 px at 300 dpi)
+[   0.30s] [debug] [writing outputs] wrote vpc_report.html (81115 bytes)
+[   0.31s] [debug] [writing outputs] wrote checksums.sha256 (912 bytes)
+[   0.31s] [ok   ] [writing outputs] 12 output file(s) written
+[   0.31s] [ok   ] [writing outputs] pcVPC complete — 0 of 27 observed percentiles outside their 95% CI — total elapsed 0.31s

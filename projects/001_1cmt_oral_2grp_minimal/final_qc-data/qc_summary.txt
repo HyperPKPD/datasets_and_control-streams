@@ -1,0 +1,257 @@
+Command: nlmx qc-data .\data\analysis.csv --output final_qc-data --plots
+
+nlmx qc-data — dataset quality control
+====================================
+Dataset      .\data\analysis.csv
+File         64,577 bytes, 1,001 lines, delimiter comma
+Content      1,000 records, 18 columns; 100 individuals; 100 dose records; 900 observations (900 used)
+Verdict      READY WITH WARNINGS — review the warnings before analysis
+Checks       99 checks: 79 PASS, 8 COMMENT, 2 WARN, 0 FAIL, 10 N/A
+
+FILE AND FORMAT
+  PASS    FIL01  Can the file be read, and does it have a header and at least one data record?
+              → 1,000 data records and 18 columns read (comma delimited, 1001 lines)
+  PASS    FIL02  Is the file free of a byte-order mark (BOM) at its start?
+              → no byte-order mark
+  PASS    FIL03  Is the file plain ASCII, without accented, typographic or other non-ASCII characters?
+              → every character is ASCII
+  PASS    FIL04  Are the line endings the same on every line (no mix of CRLF and LF, no lone CR)?
+              → every line ends with LF
+  PASS    FIL05  Is one field delimiter used throughout (not commas and tabs mixed)?
+              → one delimiter (comma) throughout
+  PASS    FIL06  Is the file free of blank lines between the records?
+              → no blank lines
+  PASS    FIL07  Does every data record begin with a number (no comment lines, text lines or flagged records)?
+              → every data record begins with a number
+  PASS    FIL08  Does every record have as many fields as the header has columns?
+              → every record has 18 fields
+  PASS    FIL09  Are there no trailing or doubled delimiters (empty extra fields)?
+              → no line ends with a delimiter
+  PASS    FIL10  Are the data fields free of quotation marks?
+              → no quotation marks
+  PASS    FIL11  Is every record shorter than the line-length limit?
+              → longest line 76 characters (limit 1000)
+  PASS    FIL12  Does the last line end with a line terminator?
+              → the file ends with a line terminator
+
+HEADER AND COLUMN NAMES
+  PASS    HDR01  Are the required columns present (ID, TIME and DV by default)?
+              → all 3 present: ID, TIME, DV
+  PASS    HDR02  Are the recommended NONMEM columns present (AMT, EVID, MDV and CMT by default)?
+              → all 4 present: AMT, EVID, MDV, CMT
+  PASS    HDR03  Is the first line a header of names (not numbers), with no blank names?
+              → the first line is a header of names
+  PASS    HDR04  Are the column names unique, ignoring upper and lower case?
+              → all column names are unique
+  PASS    HDR05  Are the column names valid NM-TRAN labels (letters, digits and underscore, beginning with a letter)?
+              → every name is a valid NM-TRAN label
+  PASS    HDR06  Is every column name within the length limit (20 characters)?
+              → every name has at most 20 characters
+  PASS    HDR07  Are the column names free of NM-TRAN reserved words and abbreviated-code functions?
+              → no column has a reserved name
+  PASS    HDR08  Is the number of columns within the NM-TRAN limit (50 data items, DROP not counted)?
+              → 18 columns (limit 50)
+
+VALUES AND DATA TYPES
+  PASS    VAL01  Are ID, TIME, DV, AMT, EVID, MDV, CMT, RATE, ADDL, II and SS numeric in every record?
+              → every NONMEM data item is numeric
+  PASS    VAL02  Are the other columns numeric, or text columns that you will DROP in $INPUT?
+              → every other column is numeric
+  PASS    VAL03  Are missing values written as blank or '.', and not as NA, NaN, NULL, N/A, - or similar?
+              → no NA, NaN, NULL or similar markers
+  PASS    VAL04  Do the numbers use a decimal point (no decimal commas or thousands separators)?
+              → no decimal commas
+  PASS    VAL05  Do ID and TIME have a value in every record?
+              → ID and TIME are filled in every record
+  PASS    VAL06  Are the numbers free of sentinel codes for 'missing' (-99, -999, ...)?
+              → no sentinel codes
+  PASS    VAL07  Are all numbers finite and of a magnitude NONMEM handles (not above 1e10)?
+              → all values are finite and moderate
+  PASS    VAL08  Is every field at most 24 characters long (the NM-TRAN data item limit)?
+              → no field is longer than 24 characters
+  PASS    VAL09  Are the IDs whole numbers of at most 15 digits, and do different ID strings stay different as numbers?
+              → IDs are whole numbers that stay distinct
+  PASS    VAL10  Is every column filled in at least once (no completely empty columns)?
+              → no column is empty
+
+RECORDS AND NONMEM DATA ITEMS
+  PASS    REC01  Is EVID 0, 1, 2, 3 or 4 in every record?
+              → EVID is one of 0, 1, 2, 3, 4 in every record
+  PASS    REC02  Is MDV 0 or 1 in every record?
+              → MDV is 0 or 1 in every record
+  PASS    REC03  Is MDV consistent with EVID (MDV = 1 on every record that is not an observation)?
+              → MDV = 1 on every event record
+  PASS    REC04  Does every observation record (EVID 0, MDV 0) have a DV?
+              → every observation record has a DV
+  PASS    REC05  Which observations are excluded on purpose (EVID 0 with MDV 1)?
+              → no observation is excluded with MDV = 1
+  PASS    REC06  Do dose and other-event records have no DV (blank, '.' or 0)?
+              → event records carry no DV
+  PASS    REC07  Does every dose record (EVID 1 or 4) have a positive AMT?
+              → every dose record has a positive AMT
+  PASS    REC08  Are AMT and II non-negative, RATE 0 or above (or -1, -2), and ADDL a non-negative whole number?
+              → no negative amounts, rates or intervals
+  PASS    REC09  Do observation records (EVID 0) have no dose amount?
+              → observation records carry no dose amount
+  PASS    REC10  Is CMT a whole number within the range of compartments (|CMT| at most 99)?
+              → CMT is a whole number in every record
+  COMMENT REC11  Which compartments receive the doses and which are observed, and is CMT given on every record when it is used?
+              → doses into CMT 1 (100); observations in CMT 2 (900)
+  PASS    REC12  Is RATE positive only on dose records with a positive AMT?
+              → RATE appears on dose records with an amount only
+  PASS    REC13  Are the infusion durations (AMT / RATE) within the limits you set?
+              → no infusions (RATE > 0) in the data
+  PASS    REC14  Does ADDL > 0 come with II > 0, and is II > 0 used with ADDL or SS?
+              → ADDL and II are used together
+  PASS    REC15  Are ADDL, II and SS used on dose records only?
+              → ADDL, II and SS are used on dose records only
+  N/A     REC16  Is SS one of 0, 1, 2, 3, and is SS > 0 on a dose record with II > 0?
+              → no SS column
+  PASS    REC17  Are there no duplicated records (all fields identical; doses are checked by REC19)?
+              → no record is duplicated
+  PASS    REC18  Are there no two observations of one individual at one time and compartment with different DV?
+              → no two observations share a time with different DV
+  PASS    REC19  Are there no two doses of one individual at one time and compartment (a double dose)?
+              → no dose is recorded twice
+  PASS    REC20  Which reset and other-type events (EVID 2, 3, 4) are in the data?
+              → no EVID 2, 3 or 4 records
+
+TIME
+  PASS    TIM01  Is TIME non-decreasing within each individual (a lower time only on a reset record)?
+              → TIME never decreases within an individual
+  PASS    TIM02  Are the records of each ID together in one block (no ID reappears after another)?
+              → every ID is one block (100 individuals)
+  PASS    TIM03  Is TIME free of negative values?
+              → no negative times
+  PASS    TIM04  Is the largest TIME plausible for the time unit (below the limit you set)?
+              → the largest TIME is 24 (limit 1.00e5)
+  PASS    TIM05  Which observations share a time with a dose of the same individual, and do they come before or after the dose?
+              → no observation shares a time with a dose
+  N/A     TIM06  Is the time between consecutive records of an individual below the gap limit you set?
+              → no gap limit set ([time] max_gap)
+  N/A     TIM07  Does the TAD column equal the time since the latest dose?
+              → no TAD column named (--tad-col)
+  N/A     TIM08  Is the actual TIME close to the nominal time?
+              → no nominal-time column named (--nominal-time-col)
+  PASS    TIM09  Which observations come before the first dose of the individual?
+              → no observation precedes the first dose
+
+DOSING
+  PASS    DOS01  Does every individual with observations have at least one dose record?
+              → every individual with observations has a dose
+  PASS    DOS02  Does every individual with a dose have at least one observation?
+              → every dosed individual has observations
+  PASS    DOS03  Is the first dose of each individual at TIME 0?
+              → every first dose is at time 0
+  PASS    DOS04  Does the dose amount stay the same within each individual?
+              → each individual keeps one dose amount
+  PASS    DOS05  Are all dose amounts near the usual dose levels (no unit slips of 10 times or more)?
+              → 2 dose levels, none an outlier (median dose 75)
+  N/A     DOS06  Are the dosing intervals regular within each individual?
+              → no individual has three or more dose records
+  COMMENT DOS07  What are the dose levels, routes (compartments) and regimens?
+              → 100 dose records in 100 individuals; 2 dose level(s): 50 (50), 100 (50); into CMT 1 (100)
+
+OBSERVATIONS
+  PASS    OBS01  Does the dataset have observation records?
+              → 900 observation records, 900 of them used (MDV 0)
+  PASS    OBS02  Is DV free of negative values?
+              → no negative DV
+  PASS    OBS03  Are the DV values of 0 explained (before the first dose or flagged as BLQ)?
+              → no DV of 0
+  N/A     OBS04  Are BLQ observations handled consistently (flag agrees with the LLOQ, one imputation rule)?
+              → no BLQ flag column ([columns] blq), LLOQ (--lloq) or LLOQ column to check against
+  N/A     OBS05  Is the fraction of BLQ observations below the limit you set?
+              → no BLQ flag, LLOQ or LLOQ column
+  WARN    OBS06  Are there concentrations far from those of other individuals at similar times after the dose?
+              → 2 outlying concentration(s) (2 individuals). For example: line 381 ID 38: DV = 0.0011 is 196.7x
+                below the typical value per unit dose at about 24 h after the dose (24–24); line 961 ID 96: DV =
+                0.0127 is 32.663x below the typical value per unit dose at about 24 h after the dose (24–24)
+              To do: Check the listed values against the source data; remove or exclude (MDV = 1) only with a
+                     documented reason.
+  PASS    OBS07  Are there isolated spikes within an individual's profile (a value far above both neighbours after the peak)?
+              → no spikes within the profiles
+  PASS    OBS08  Are the concentrations before the first dose zero or below the quantification limit?
+              → no pre-dose samples
+  PASS    OBS09  Does every individual have at least the minimum number of observations?
+              → every individual with observations has at least 2
+  PASS    OBS10  Does every individual have at least one quantifiable concentration after the first dose?
+              → every dosed individual has a quantifiable post-dose concentration
+  PASS    OBS11  Is the scale of DV as declared (natural concentrations or their logarithm)?
+              → DV runs from 0.0011 to 4.293 (median 0.9488), as expected for concentrations
+  COMMENT OBS12  Which observation types are present (DVID or compartment) and how many records has each?
+              → compartments of the observations (CMT): 2 (900)
+  COMMENT OBS13  What is the sampling design (observations per individual and times after the dose)?
+              → 900 used observations in 100 individuals; per individual: minimum 9, median 9, maximum 9; time
+                after the dose 0.5 to 24 with 9 distinct sampling times
+
+INDIVIDUALS
+  COMMENT SUB01  How many individuals, records, doses and observations does the dataset have?
+              → 100 individuals, 1,000 records (blocks of one ID: 100), 100 doses and 900 observations used
+                (plus 0 with MDV 1); records per individual: minimum 10, median 10, maximum 10
+  PASS    SUB02  Does every individual have more than one record?
+              → every individual has at least 2 records
+  N/A     SUB03  Do the grouping columns stay constant within each individual?
+              → no grouping column named (--group or [data] group), or all are listed as time-varying
+  PASS    SUB04  Is the number of records per individual free of extreme values?
+              → record counts are close to the median of 10
+  PASS    SUB05  Does every individual have at least one observation that is used (MDV 0)?
+              → every individual has an observation that is used
+  PASS    SUB06  Does every individual start with a dose or event record (not an observation)?
+              → every individual starts with a dose or an event record
+
+COVARIATES
+  COMMENT COV01  Which covariates were examined, and are they continuous, categorical or time-varying?
+              → 8 covariates — continuous: WT, AGE, EGFR, CRCL; categorical: GROUP (2 levels), DOSE (2 levels),
+                SEX (2 levels), BLQ (1 levels)
+  PASS    COV02  Are the covariates free of missing values (blank, '.' or a sentinel code)?
+              → no missing covariate values in 8 covariates
+  PASS    COV03  Are the covariate values within plausible ranges?
+              → WT, AGE within the ranges ([covariates.ranges])
+  PASS    COV04  Are the baseline covariates constant within each individual?
+              → 8 baseline covariates are constant within every individual
+  PASS    COV05  Do the categorical covariates have the expected levels, none of them rare?
+              → GROUP (2 levels), DOSE (2 levels), SEX (2 levels), BLQ (1 levels)
+  PASS    COV06  Are the continuous covariates free of extreme values (beyond the Tukey fences)?
+              → 4 continuous covariates without extreme values
+  COMMENT COV07  Is every covariate variable (more than one value)?
+              → 1 constant covariate(s) (1 individual). For example: line 2 ID 1: BLQ has the single value 0
+  WARN    COV08  Are the continuous covariates free of strong pairwise correlation (|r| below the limit)?
+              → 2 strongly associated covariate pair(s) (1 individual). For example: line 2 ID 1: EGFR and CRCL:
+                r = 0.98 (100 individuals); line 2 ID 1: GROUP and DOSE: Cramér's V = 1.00 (100 individuals)
+              To do: Strongly correlated covariates cannot be told apart in a covariate model; choose one or a
+                     composite.
+  N/A     COV09  Are derived covariates consistent with their parts (BMI and BSA from weight and height)?
+              → needs BMI or BSA together with weight (WT) and height (HT)
+  PASS    COV10  Do the magnitudes of AGE, WT and HT suggest the usual units (years, kg, cm)?
+              → AGE, WT and HT magnitudes agree with years, kg and cm
+  N/A     COV11  Do time-varying covariates change plausibly between consecutive records?
+              → no time-varying continuous covariate
+
+NONMEM READINESS
+  PASS    NMT01  Will the IGNORE option you plan to use skip the header line and nothing else?
+              → IGNORE=@ skips the header (line 1)
+  COMMENT NMT02  Which $DATA and $INPUT statements fit this file?
+              → $DATA analysis.csv IGNORE=@; $INPUT with 18 of 18 columns (the rest as =DROP); the full
+                statements are in qc_nonmem.txt
+  PASS    NMT03  Which special data items are used, and what do they require of the model?
+              → no special data items (RATE, ADDL, II, SS, EVID 2–4) are used
+
+Outputs
+  qc_checklist.csv
+  qc_findings.csv
+  qc_columns.csv
+  qc_subjects.csv
+  qc_dosing.csv
+  qc_events.csv
+  qc_sampling.csv
+  qc_covariates_continuous.csv
+  qc_covariates_categorical.csv
+  qc_covariate_correlation.csv
+  qc_nonmem.txt
+  plots/ (13 figures)
+  report.html
+  qc_summary.json
+  qc_summary.txt
+
+Folder       final_qc-data

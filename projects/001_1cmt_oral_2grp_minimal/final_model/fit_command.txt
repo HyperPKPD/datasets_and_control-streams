@@ -1,0 +1,3 @@
+# The estimation settings of this fit, every one written out (nlmx fit --print-options).
+# Running this line again repeats the estimation.
+nlmx fit .\truth.ctl --approximation foce-i --max-iterations 300 --gradient-tolerance 0.001 --cov-step --cov-matrix rsr

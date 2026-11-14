@@ -1,0 +1,123 @@
+nlmx qc-nm — control stream quality control
+Control stream: .\truth.ctl
+Command: nlmx qc-nm .\truth.ctl --output final_qc-nm --plots
+Verdict: READY  (81 checks: 74 pass, 2 comment, 0 warn, 0 fail, 5 not applicable)
+
+FILE AND FORMAT
+  PASS    FIL01  Is the control stream a readable, non-empty text file?
+  PASS    FIL02  Is the file free of a byte-order mark and of non-ASCII characters?
+  PASS    FIL03  Are the line endings consistent (all CRLF or all LF)?
+  PASS    FIL04  Are the lines within the line-length limit?
+  PASS    FIL05  Is the file free of tab characters?
+  PASS    FIL06  Is the file free of trailing white space?
+  COMMENT FIL07  How many problems ($PROBLEM records) does the file hold?
+              → one problem
+
+RECORDS
+  PASS    REC01  Does the control stream start with $PROBLEM (after $SIZES and comments)?
+  PASS    REC02  Is every record name one that NM-TRAN knows?
+  PASS    REC03  Are the record names written in full (not abbreviated)?
+  PASS    REC04  Is each single-use record given at most once per problem?
+  PASS    REC05  Are the records the model needs present ($INPUT, $DATA, a model, $THETA)?
+  PASS    REC06  Is the model either $PRED or PREDPP ($SUBROUTINES with $PK and $ERROR), not both?
+  PASS    REC07  Are the records in a usual order ($INPUT and $DATA before the code, parameters before $ESTIMATION, $ESTIMATION before $COVARIANCE and $TABLE)?
+  PASS    REC08  Does every record that needs content have it?
+  N/A     REC09  Is $SIZES (when present) before $PROBLEM?
+              → no $SIZES
+  N/A     REC10  Do the files named by $INCLUDE, $MSFI and $ETAS/$PHIS FILE= exist?
+              → no $INCLUDE, $MSFI or FILE= of $ETAS/$PHIS
+
+$INPUT
+  PASS    INP01  Are the $INPUT labels valid names (a letter first, letters, digits and _, within the length limit)?
+  PASS    INP02  Are the $INPUT labels unique?
+  PASS    INP03  Are the data items NONMEM needs in $INPUT (ID and DV; TIME and AMT for PREDPP)?
+  PASS    INP04  Are reserved names kept out of the $INPUT labels (THETA, ETA, EPS, PRED, RES, WRES …)?
+  PASS    INP05  Are DROPped data items left out of the code (they stay usable in IGNORE/ACCEPT)?
+  PASS    INP06  Are EVID and MDV given, or can NONMEM infer them?
+  PASS    INP07  Do the $INPUT labels match the dataset header (number and names)?
+  PASS    INP08  Are the dataset columns that hold text DROPped in $INPUT?
+
+$DATA AND THE DATASET
+  PASS    DAT01  Does $DATA name a dataset that exists (relative to the control stream)?
+  PASS    DAT02  Will the IGNORE option skip the header line of the dataset?
+  PASS    DAT03  Do the IGNORE/ACCEPT conditions use $INPUT labels and valid operators, without mixing IGNORE=(list) and ACCEPT?
+  PASS    DAT04  Is the number of IGNORE/ACCEPT conditions within NONMEM's limit?
+  PASS    DAT05  Do the dataset's CMT values exist in the model?
+  PASS    DAT06  Does the dataset have at least as many columns as $INPUT has labels?
+  COMMENT DAT07  How many records and individuals will NONMEM read after IGNORE/ACCEPT?
+              → 1000 records read of 1000 data lines, 100 individuals
+  PASS    DAT08  Are the dataset lines that are not data (comments, notes, a second header) skipped by the IGNORE option?
+  PASS    DAT09  Do .EQ./.NE. conditions on numbers match the dataset as intended (they compare text: 0 is not 0.0)?
+  PASS    DAT10  Does every IGNORE/ACCEPT condition select some records, and do observations remain?
+
+$SUBROUTINES, $MODEL AND PK PARAMETERS
+  PASS    SUB01  Is the ADVAN known and the TRANS valid for it?
+  PASS    SUB02  Is TOL given for the general ADVANs (6, 8, 9, 13, 14, 15)?
+  PASS    SUB03  Does a general ADVAN have $MODEL, and an ODE ADVAN $DES?
+  PASS    SUB04  Are the basic PK parameters required by ADVAN/TRANS assigned in $PK?
+  PASS    SUB05  Is the scale S of the observation compartment set in $PK?
+  PASS    SUB06  Do the compartment numbers of Fn, ALAGn, Rn, Dn, Sn and A(n) exist in the model?
+  N/A     SUB07  Does $DES define DADT(n) for every compartment, and for no other?
+              → no $DES
+
+ABBREVIATED CODE
+  PASS    COD01  Does the abbreviated code parse (syntax)?
+  PASS    COD02  Are IF/THEN/ELSE/ENDIF and DO WHILE/ENDDO balanced?
+  PASS    COD03  Are the THETA(n) indices within $THETA, and is every THETA used?
+  PASS    COD04  Are the ETA(n) indices within $OMEGA, and is every ETA used?
+  PASS    COD05  Are the EPS(n)/ERR(n) indices within $SIGMA, and is every EPS used?
+  PASS    COD06  Is every variable defined before it is used (or a data item or NONMEM name)?
+  PASS    COD07  Is Y defined in $ERROR (PREDPP) or $PRED?
+  PASS    COD08  Are LOG, SQRT and divisions protected against zero or negative values?
+  PASS    COD09  Are the variable names valid (within the length limit, not reserved words)?
+  PASS    COD10  Does each block use only what NONMEM allows there (no EPS in $PK, DADT only in $DES, A(n) not in $PK)?
+  N/A     COD11  Are MU-referencing statements present for the EM and Bayesian methods?
+              → no EM or Bayesian method
+  PASS    COD12  Is every variable defined in $PK, $ERROR, $PRED or $DES used later or written to a $TABLE?
+
+$THETA, $OMEGA AND $SIGMA
+  PASS    PAR01  Do $THETA, $OMEGA and $SIGMA parse?
+  PASS    PAR02  Are the THETA bounds ordered, with the initial value inside them?
+  PASS    PAR03  Are the THETA initial values away from their bounds?
+  PASS    PAR04  Are the estimated THETAs started away from zero?
+  PASS    PAR05  Are the diagonal OMEGA/SIGMA values positive, and zeros FIXed?
+  PASS    PAR06  Are the OMEGA/SIGMA blocks positive definite?
+  PASS    PAR07  Does each BLOCK(n) have n(n+1)/2 values, and does SAME follow a block of the same size?
+  PASS    PAR08  Are the OMEGA initial values plausible (CV between 1 % and 300 %)?
+  PASS    PAR09  Are FIXed THETAs written without bounds that would be ignored?
+
+$ESTIMATION AND $COVARIANCE
+  PASS    EST01  Is there an $ESTIMATION (or $SIMULATION) record?
+  PASS    EST02  Are the methods and options of $ESTIMATION valid together?
+  PASS    EST03  Is INTERACTION set when the residual error depends on the prediction?
+  PASS    EST04  Is MAXEVAL given for the classical methods?
+  PASS    EST05  Do likelihood models (F_FLAG, LIKELIHOOD, -2LL, M3) use LAPLACIAN?
+  PASS    EST06  Is the sequence of methods sensible (an EM method followed by IMP or an evaluation)?
+  PASS    EST07  Is a $COVARIANCE step requested?
+  N/A     EST08  Does FO (METHOD=0) have POSTHOC when tables or code need individual estimates?
+              → no METHOD=0
+  PASS    EST09  Are the $ESTIMATION and $COVARIANCE options known?
+
+$TABLE
+  PASS    TAB01  Are the $TABLE file names unique?
+  PASS    TAB02  Is every $TABLE item a data item, a variable of the code or a NONMEM output?
+  PASS    TAB03  Do the $TABLE records use ONEHEADER and NOPRINT?
+  PASS    TAB04  Is there at least one $TABLE with the diagnostics (ID, TIME, DV, PRED, IPRED, CWRES)?
+  PASS    TAB05  Is each item listed only once per $TABLE?
+  PASS    TAB06  Does every $TABLE with NOPRINT have FILE= (otherwise the table is written nowhere useful)?
+
+DOCUMENTATION
+  PASS    DOC01  Does $PROBLEM carry a description?
+  PASS    DOC02  Are the THETA, OMEGA and SIGMA values labelled with comments?
+  PASS    DOC03  Does the file have a header comment (description, author, date)?
+
+Outputs
+  qc_nm_checklist.csv
+  qc_nm_findings.csv
+  qc_nm_changes.csv
+  qc_nm_parameters.csv
+  qc_nm_variables.csv
+  report.html
+  qc_nm_summary.json
+  qc_nm_summary.txt
+Folder: final_qc-nm

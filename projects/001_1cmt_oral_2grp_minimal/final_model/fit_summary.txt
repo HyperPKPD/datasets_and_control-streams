@@ -1,0 +1,57 @@
+nlmx fit — nlmx 4.18.8
+==============================================================================
+
+Problem           : TRUTH (simulation only) - 1-compartment oral (first-order absorption)
+Control stream    : .\truth.ctl
+Dataset           : .\data/analysis.csv (100 subjects, 900 observations)
+Model             : ADVAN2 TRANS2: one compartment with first-order absorption; 5 THETA, 2 ETA, 1 EPS
+Estimation        : foce_i
+Termination       : MINIMIZATION SUCCESSFUL — gradient below 1.0e-3
+Iterations        : 8 (120 objective evaluations)
+Final max gradient: 3.264e-4 (internal scale)
+Initial OFV       : -2120.6387
+OBJECTIVE FUNCTION VALUE (OFV): -2121.4846
+Run time          : 0.4 s
+
+Parameter estimates
+  parameter    label                      estimate          SE     RSE%                    95% CI        derived   shrink%
+  THETA(1)     THETA(1) TVCL: typica…      3.25728   0.0979232      3.0        [3.06536, 3.44921]                         
+  THETA(2)     THETA(2) TVV: typical…      41.4523     1.09017      2.6         [39.3156, 43.589]                         
+  THETA(3)     THETA(3) TVKA: typica…      1.10289   0.0258186      2.3        [1.05229, 1.15349]                         
+  THETA(4)     THETA(4) proportional…     0.150806   0.0050187      3.3      [0.140969, 0.160642]                         
+  THETA(5)     THETA(5) additive res…    0.0211304  0.00489828     23.2    [0.0115299, 0.0307308]                         
+  OMEGA(1,1)   CL (iiv)                  0.0818591   0.0138034     16.9      [0.054805, 0.108913]    29.2067 CV%       4.9
+  OMEGA(2,2)   V (iiv)                    0.061581  0.00978886     15.9    [0.0423951, 0.0807668]    25.2025 CV%       3.6
+  SIGMA(1,1)                                     1           –        –                     FIXED           1 SD          
+
+  EPS shrinkage (1 - SD(IWRES)): 10.8%
+
+OMEGA (final)
+  ETA1       0.0818591
+  ETA2               0     0.061581
+SIGMA (final)
+  EPS1               1
+
+Covariance step: R^-1 S R^-1 (sandwich) on 7 parameter(s)
+  eigenvalues of the correlation matrix: min 4.5926e-1, max 1.5764e0; condition number 3.4325e0
+
+Data columns ($INPUT by position)
+   col  data header      $INPUT             status
+     1  ID               ID                 kept
+     2  TIME             TIME               kept
+     3  AMT              AMT                kept
+     4  RATE             RATE               kept
+     5  ADDL             ADDL               kept
+     6  II               II                 kept
+     7  EVID             EVID               kept
+     8  MDV              MDV                kept
+     9  DV               DV                 kept
+    10  CMT              CMT                kept
+    11  GROUP            GROUP              kept
+    12  DOSE             DOSE               kept
+    13  WT               WT                 kept
+    14  AGE              AGE                kept
+    15  SEX              SEX                kept
+    16  EGFR             EGFR               kept
+    17  CRCL             CRCL               kept
+    18  BLQ              BLQ                kept
