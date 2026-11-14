@@ -25,6 +25,9 @@ Each directory is an independent, self-contained modelling project with a simula
 | F | 073–088 | Estimation methods and true covariate models |
 | G | 089–100 | Realistic clinical-study archetypes |
 
+
+This particular project has both the base model and all final model outputs https://github.com/HyperPKPD/datasets_and_control-streams/tree/main/projects/001_1cmt_oral_2grp_minimal
+
 Every project has 2 to 6 treatment groups, goodness-of-fit plots, its own seed and its own author. The true parameter values and covariate effects are known (`truth.ctl`), so estimates can be checked against the truth.
 
 ## Generating the projects
